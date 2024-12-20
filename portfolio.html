@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cornelius Yoga | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwindcss.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"></script>
+</head>
+<style>
+    :root {
+        color-scheme: light dark;
+    }
+    
+    * {
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .hero-title {
+        font-size: clamp(6.5rem, 8vw, 4rem);
+        line-height: 1.2;
+        padding: 0 1rem;
+    }
+
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            line-height: 1.2;
+            padding: 0 1rem;
+        }
+        
+        #menu-toggle {
+            display: block;
+            z-index: 50;
+            color: currentColor;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            width: 100%;
+            background: inherit;
+            padding: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+    }
+
+    .theme-toggle {
+        z-index: 50;
+        padding: 0.5rem;
+        border-radius: 9999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s ease;
+    }
+
+    .mobile-menu {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .mobile-menu.active {
+        transform: translateY(0);
+    }
+
+    .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .tool-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        height: 100%;
+    }
+
+    .theme-toggle {
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+
+    .nav-items {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+</style>
+<body class="transition-colors duration-200 dark:bg-gray-900 bg-white dark:text-white text-gray-900">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white dark:bg-gray-900 bg-opacity-90 dark:bg-opacity-90 z-40 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold">CZY</a>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex nav-items">
+                    <a href="#about" class="hover:text-blue-500 transition">About</a>
+                    <a href="#work" class="hover:text-blue-500 transition">Work</a>
+                    <a href="#contact" class="hover:text-blue-500 transition">Contact</a>
+                    <button id="theme-toggle" class="theme-toggle dark:bg-gray-800 bg-gray-200">
+                        <i data-feather="moon" class="hidden dark:block w-5 h-5"></i>
+                        <i data-feather="sun" class="block dark:hidden w-5 h-5"></i>
+                    </button>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 z-50" id="menu-toggle">
+                    <i data-feather="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu md:hidden" id="mobile-menu">
+            <div class="container mx-auto px-6 py-4 space-y-4">
+                <a href="#about" class="block hover:text-blue-500 py-2">About</a>
+                <a href="#work" class="block hover:text-blue-500 py-2">Work</a>
+                <a href="#contact" class="block hover:text-blue-500 py-2">Contact</a>
+                <button id="theme-toggle-mobile" class="theme-toggle dark:bg-gray-800 bg-gray-200">
+                    <i data-feather="moon" class="hidden dark:block w-5 h-5"></i>
+                    <i data-feather="sun" class="block dark:hidden w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-blue-900">
+        <div class="text-center px-6" data-aos="fade-up">
+            <h1 class="hero-title font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
+                CORNELIUS YOGA
+            </h1>
+            <p class="text-xl md:text-2xl dark:text-gray-300 text-gray-600">
+                Multimedia Expert & Technology Enthusiast
+            </p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 dark:bg-gray-800 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-16 text-center" data-aos="fade-up">About Me</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12" data-aos="fade-up" data-aos-delay="200">
+                <!-- Professional Profile & Skills -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Professional Profile</h3>
+                    <p class="dark:text-gray-300 text-gray-600 mb-6">Professional multimedia and technology expert with 5+ years of experience in digital project management and system installation. Proven track record of improving system efficiency by 20% through software optimization and troubleshooting. Successfully increased social media engagement by 150% through creative content production.</p>
+                    
+                    <h3 class="text-2xl font-bold mb-4">Technical Skills</h3>
+                    <div class="mb-6 space-y-4">
+                        <div class="dark:bg-gray-700 bg-white p-4 rounded-lg shadow-lg">
+                            <h4 class="text-xl mb-2">Languages & Frameworks</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-blue-500 text-white rounded-full text-sm">C</span>
+                                <span class="px-3 py-1 bg-blue-500 text-white rounded-full text-sm">C++</span>
+                                <span class="px-3 py-1 bg-red-500 text-white rounded-full text-sm">HTML</span>
+                                <span class="px-3 py-1 bg-green-500 text-white rounded-full text-sm">CSS</span>
+                                <span class="px-3 py-1 bg-yellow-500 text-white rounded-full text-sm">JavaScript</span>
+                                <span class="px-3 py-1 bg-blue-500 text-white rounded-full text-sm">Python</span>
+                                <span class="px-3 py-1 bg-purple-500 text-white rounded-full text-sm">PHP</span>
+                                <span class="px-3 py-1 bg-pink-500 text-white rounded-full text-sm">Java</span>
+                                <span class="px-3 py-1 bg-indigo-500 text-white rounded-full text-sm">Kotlin</span>
+                                <span class="px-3 py-1 bg-gray-500 text-white rounded-full text-sm">Laravel</span>
+                                <span class="px-3 py-1 bg-gray-500 text-white rounded-full text-sm">Bootstrap</span>
+                                <span class="px-3 py-1 bg-gray-500 text-white rounded-full text-sm">Tailwind CSS</span>
+                                <!-- Add more skills -->
+                            </div>
+                        </div>
+                        
+                        <div class="dark:bg-gray-700 bg-white p-4 rounded-lg shadow-lg">
+                            <h4 class="text-xl mb-2">Database & Infrastructure</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-green-500 text-white rounded-full text-sm">MySQL</span>
+                                <span class="px-3 py-1 bg-red-500 text-white rounded-full text-sm">MongoDB</span>
+                                <span class="px-3 py-1 bg-blue-500 text-white rounded-full text-sm">Redis</span>
+                                <span class="px-3 py-1 bg-yellow-500 text-white rounded-full text-sm">Google Cloud Platform</span>
+                                <!-- Add more skills -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools Section -->
+                <div class="tools-section">
+                    <h3 class="text-2xl font-bold mb-6">Tools I Use</h3>
+                    <div class="tools-grid">
+                        <!-- Tools will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Career Summary -->
+            <div class="mt-16" data-aos="fade-up">
+                <h3 class="text-2xl font-bold mb-8 text-center">Career Summary</h3>
+                
+                <div class="mx-auto">
+                    <!-- Timeline wrapper -->
+                    <div class="relative">
+                        <!-- Center line -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 via-purple-500 to-green-500"></div>
+                        
+                        <!-- UKSW -->
+                        <div class="relative mb-16">
+                            <div class="flex items-center justify-center mb-4">
+                                <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-gray-800"></div>
+                            </div>
+                            <div class="relative ml-0 md:ml-[calc(50%+2rem)] md:w-[calc(50%-2rem)]" 
+                                 data-aos="fade-left" 
+                                 data-aos-duration="1000">
+                                <div class="dark:bg-gray-700 bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+                                    <div class="absolute left-0 top-0 h-full w-2 bg-blue-500 rounded-l-lg"></div>
+                                    <div class="ml-4">
+                                        <h4 class="text-xl font-bold">Universitas Kristen Satya Wacana</h4>
+                                        <p class="text-gray-500">Aug 2022 - Present</p>
+                                        <div class="mt-4 dark:text-gray-300 text-gray-600">
+                                            <p class="font-semibold">Committee Chairman, Publication & Documentation Coordinator, Teaching Assistant</p>
+                                            <ul class="mt-2 list-disc list-inside space-y-2">
+                                                <li class="transform hover:translate-x-2 transition-transform">Led 50+ team members in international events</li>
+                                                <li class="transform hover:translate-x-2 transition-transform">Increased registrants by 254%</li>
+                                                <li class="transform hover:translate-x-2 transition-transform">Optimized Instagram engagement: followers +5%, likes +60%, views +150%</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- GKMI -->
+                        <div class="relative mb-16">
+                            <div class="flex items-center justify-center mb-4">
+                                <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full border-4 border-white dark:border-gray-800"></div>
+                            </div>
+                            <div class="relative mr-0 md:mr-[calc(50%+2rem)] md:w-[calc(50%-2rem)]"
+                                 data-aos="fade-right"
+                                 data-aos-duration="1000">
+                                <div class="dark:bg-gray-700 bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+                                    <div class="absolute left-0 top-0 h-full w-2 bg-purple-500 rounded-l-lg"></div>
+                                    <div class="ml-4">
+                                        <h4 class="text-xl font-bold">Komisi Remaja Metanoia GKMI Kudus</h4>
+                                        <p class="text-gray-500">Jul 2017 - Jul 2022</p>
+                                        <div class="mt-4 dark:text-gray-300 text-gray-600">
+                                            <p class="font-semibold">Committee Chairman, Media Coordinator & Member</p>
+                                            <ul class="mt-2 list-disc list-inside space-y-2">
+                                                <li class="transform hover:translate-x-2 transition-transform">Increased social media engagement by 10%</li>
+                                                <li class="transform hover:translate-x-2 transition-transform">Produced 10+ content with 100+ average engagement</li>
+                                                <li class="transform hover:translate-x-2 transition-transform">Implemented ProPresenter system with 80% efficiency increase</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- SMAN 1 Kudus -->
+                        <div class="relative">
+                            <div class="flex items-center justify-center mb-4">
+                                <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-4 border-white dark:border-gray-800"></div>
+                            </div>
+                            <div class="relative ml-0 md:ml-[calc(50%+2rem)] md:w-[calc(50%-2rem)]"
+                                 data-aos="fade-left"
+                                 data-aos-duration="1000">
+                                <div class="dark:bg-gray-700 bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+                                    <div class="absolute left-0 top-0 h-full w-2 bg-green-500 rounded-l-lg"></div>
+                                    <div class="ml-4">
+                                        <h4 class="text-xl font-bold">SMAN 1 Kudus</h4>
+                                        <p class="text-gray-500">Oct 2020 - Oct 2021</p>
+                                        <div class="mt-4 dark:text-gray-300 text-gray-600">
+                                            <p class="font-semibold">ICT Division Head, Committee Chairman, Documentation Coordinator</p>
+                                            <ul class="mt-2 list-disc list-inside space-y-2">
+                                                <li class="transform hover:translate-x-2 transition-transform">Produced 30+ photo/video content with 200+ average engagement</li>
+                                                <li class="transform hover:translate-x-2 transition-transform">Managed 3 social media platforms with 8K+ followers</li>
+                                                <li class="transform hover:translate-x-2 transition-transform">Won 2nd place in school short movie competition</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="py-20 dark:bg-gray-900 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-16 text-center" data-aos="fade-up">My Work</h2>
+            
+            <!-- Work Categories -->
+            <div class="flex justify-center mb-8 space-x-4">
+                <button class="work-filter active px-4 py-2 rounded-full bg-blue-500 text-white" data-category="all">All</button>
+                <button class="work-filter px-4 py-2 rounded-full dark:bg-gray-700 bg-gray-200" data-category="web">Web</button>
+                <button class="work-filter px-4 py-2 rounded-full dark:bg-gray-700 bg-gray-200" data-category="photo">Photo</button>
+                <button class="work-filter px-4 py-2 rounded-full dark:bg-gray-700 bg-gray-200" data-category="video">Video</button>
+            </div>
+            
+            <!-- Work Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
+                <!-- Work items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 dark:bg-gray-800 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-16 text-center" data-aos="fade-up">Get In Touch</h2>
+            
+            <div class="flex justify-center space-x-8 mb-12" data-aos="fade-up">
+                <a href="https://instagram.com/corneliusyoga" target="_blank" class="text-2xl hover:text-blue-500 transition">
+                    <i data-feather="instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/cornelius-yoga-783b6a291/" target="_blank" class="text-2xl hover:text-blue-500 transition">
+                    <i data-feather="linkedin"></i>
+                </a>
+                <a href="https://www.youtube.com/@CZY774" target="_blank" class="text-2xl hover:text-blue-500 transition">
+                    <i data-feather="youtube"></i>
+                </a>
+                <a href="https://github.com/CZY774" target="_blank" class="text-2xl hover:text-blue-500 transition">
+                    <i data-feather="github"></i>
+                </a>
+            </div>
+
+            <footer>
+                <p class="text-center text-gray-500" data-aos="fade-up">
+                    Made by some dude probably.
+                </p>
+            </footer>
+        </div>
+    </section>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Initialize AOS with mobile-friendly settings
+        AOS.init({
+            duration: 1000,
+            once: true,
+            disable: 'mobile' // Disable on mobile for better performance
+        });
+
+        // Improved Dark Mode Toggle with localStorage persistence
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or system preference
+        const getPreferredTheme = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                return savedTheme;
+            }
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        };
+
+        // Apply theme
+        const setTheme = (theme) => {
+            if (theme === 'dark') {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+            localStorage.setItem('theme', theme);
+        };
+
+        // Initial theme setup
+        setTheme(getPreferredTheme());
+
+        // Theme toggle click handler
+        themeToggle.addEventListener('click', () => {
+            const newTheme = html.classList.contains('dark') ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+
+        // Improved Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            // Update icon
+            const icon = menuToggle.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.setAttribute('data-feather', 'x');
+            } else {
+                icon.setAttribute('data-feather', 'menu');
+            }
+            feather.replace();
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.setAttribute('data-feather', 'menu');
+                feather.replace();
+            });
+        });
+
+        // Tools Grid
+        const toolsData = [
+            { name: 'Visual Studio Code', icon: 'code' },
+            { name: 'Adobe Illustrator', icon: 'pen-tool' },
+            { name: 'Adobe Premiere Pro', icon: 'film' },
+            { name: 'Adobe After Effects', icon: 'video' },
+            { name: 'Adobe Photoshop', icon: 'image' },
+            { name: 'Adobe Lightroom', icon: 'sliders' },
+            { name: 'Adobe Audition', icon: 'mic' },
+            { name: 'Figma', icon: 'layout' }
+        ];
+
+        const toolsGrid = document.querySelector('.tools-grid');
+        toolsData.forEach(tool => {
+            const toolDiv = document.createElement('div');
+            toolDiv.className = 'tool-item dark:bg-gray-700 bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300';
+            toolDiv.innerHTML = `
+                <i data-feather="${tool.icon}" class="w-6 h-6 mb-2"></i>
+                <p class="text-sm font-medium text-center">${tool.name}</p>
+            `;
+            toolsGrid.appendChild(toolDiv);
+        });
+
+        // Sync mobile theme toggle with desktop
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        if (themeToggleMobile) {
+            themeToggleMobile.addEventListener('click', () => {
+                const newTheme = html.classList.contains('dark') ? 'light' : 'dark';
+                setTheme(newTheme);
+            });
+        }
+
+        // Work Items Data
+        const workItems = [
+            {
+                type: 'web',
+                title: 'Personal Blog',
+                image: '/api/placeholder/400/300',
+                link: 'https://example.com/blog',
+                description: 'Personal blog built with React and Tailwind'
+            },
+            {
+                type: 'web',
+                title: 'E-commerce Site',
+                image: '/api/placeholder/400/300',
+                link: 'https://example.com/shop',
+                description: 'Full-stack e-commerce platform'
+            },
+            {
+                type: 'photo',
+                title: 'Nature Collection',
+                image: '/api/placeholder/400/300',
+                description: 'Photography series exploring nature'
+            },
+            {
+                type: 'photo',
+                title: 'Portrait Series',
+                image: '/api/placeholder/400/300',
+                description: 'Professional portrait photography'
+            },
+            {
+                type: 'video',
+                title: 'Event Highlights',
+                image: '/api/placeholder/400/300',
+                videoUrl: 'https://example.com/video1',
+                description: 'Campus event highlight reel'
+            },
+            {
+                type: 'video',
+                title: 'Short Film',
+                image: '/api/placeholder/400/300',
+                videoUrl: 'https://example.com/video2',
+                description: 'Award-winning short film'
+            }
+        ];
+
+        // Populate Work Grid
+        const workGrid = document.querySelector('.grid-cols-1');
+        function populateWorks(category = 'all') {
+            workGrid.innerHTML = '';
+            workItems
+                .filter(item => category === 'all' || item.type === category)
+                .forEach(item => {
+                    const workDiv = document.createElement('div');
+                    workDiv.className = 'group relative overflow-hidden rounded-lg shadow-lg';
+                    workDiv.setAttribute('data-aos', 'fade-up');
+                    
+                    const content = `
+                        <img src="${item.image}" alt="${item.title}" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                            <h3 class="text-white text-xl font-bold">${item.title}</h3>
+                            <p class="text-gray-200 mt-2">${item.description}</p>
+                            ${item.link ? `<a href="${item.link}" target="_blank" class="mt-4 inline-flex items-center text-blue-400 hover:text-blue-300">
+                                View Project <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                            </a>` : ''}
+                            ${item.videoUrl ? `<button class="mt-4 inline-flex items-center text-blue-400 hover:text-blue-300 play-video" data-url="${item.videoUrl}">
+                                Play Video <i data-feather="play" class="ml-2 w-4 h-4"></i>
+                            </button>` : ''}
+                        </div>
+                    `;
+                    
+                    workDiv.innerHTML = content;
+                    workGrid.appendChild(workDiv);
+                });
+                feather.replace();
+        }
+
+        // Initialize work grid
+        populateWorks();
+
+        // Work Filter Functionality
+        const filterButtons = document.querySelectorAll('.work-filter');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active state
+                filterButtons.forEach(btn => btn.classList.remove('active', 'bg-blue-500', 'text-white'));
+                button.classList.add('active', 'bg-blue-500', 'text-white');
+                
+                // Filter works
+                const category = button.dataset.category;
+                populateWorks(category);
+            });
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Video Player Modal
+        function createVideoModal() {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black/90 z-50 flex items-center justify-center hidden';
+            modal.innerHTML = `
+                <div class="relative w-full max-w-4xl mx-4">
+                    <button class="absolute -top-10 right-0 text-white hover:text-blue-400" id="close-modal">
+                        <i data-feather="x" class="w-8 h-8"></i>
+                    </button>
+                    <div class="aspect-w-16 aspect-h-9">
+                        <iframe class="w-full h-full" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            feather.replace();
+
+            return modal;
+        }
+
+        const videoModal = createVideoModal();
+        const closeModal = document.getElementById('close-modal');
+        closeModal.addEventListener('click', () => {
+            videoModal.classList.add('hidden');
+            videoModal.querySelector('iframe').src = '';
+        });
+
+        // Handle video play buttons
+        document.addEventListener('click', e => {
+            if (e.target.closest('.play-video')) {
+                const button = e.target.closest('.play-video');
+                const videoUrl = button.dataset.url;
+                videoModal.querySelector('iframe').src = videoUrl;
+                videoModal.classList.remove('hidden');
+            }
+        });
+
+        // Intersection Observer for navbar background
+        const nav = document.querySelector('nav');
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                nav.classList.toggle('shadow-lg', !entry.isIntersecting);
+            },
+            { threshold: 0.9 }
+        );
+
+        observer.observe(document.querySelector('section'));
+    </script>
+</body>
+</html>
