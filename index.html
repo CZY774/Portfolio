@@ -883,6 +883,64 @@
             { threshold: 0.9 }
         );
 
+        // 2. Hero Image Fix
+        function fixHeroImage() {
+            const heroImage = document.querySelector('.relative.lg\\:h-\\[600px\\] img');
+            if (heroImage) {
+                heroImage.onerror = function() {
+                    this.src = 'img/profile_4.jpg'; // Fallback image
+                    console.error('Hero image failed to load');
+                };
+            }
+        }
+
+        // 3. Work Categories Indicator
+        function enhanceWorkCategories() {
+            const filterButtons = document.querySelectorAll('.work-filter');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active state from all buttons
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active', 'bg-blue-500', 'text-white');
+                        btn.classList.add('dark:bg-gray-700', 'bg-gray-200');
+                    });
+                    
+                    // Add active state to clicked button
+                    button.classList.remove('dark:bg-gray-700', 'bg-gray-200');
+                    button.classList.add('active', 'bg-blue-500', 'text-white');
+                    
+                    // Filter works
+                    const category = button.dataset.category;
+                    populateWorks(category);
+                });
+            });
+        }
+
+        // 4. Dark Mode Toggle Fix
+        function fixDarkModeToggle() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+            const html = document.documentElement;
+
+            function toggleTheme() {
+                const isDark = html.classList.contains('dark');
+                html.classList.toggle('dark');
+                localStorage.setItem('theme', isDark ? 'light' : 'dark');
+                
+                // Update icons
+                document.querySelectorAll('[data-feather="sun"], [data-feather="moon"]').forEach(icon => {
+                    icon.style.display = isDark ? 'block' : 'none';
+                });
+                feather.replace();
+            }
+
+            themeToggle.addEventListener('click', toggleTheme);
+            if (themeToggleMobile) {
+                themeToggleMobile.addEventListener('click', toggleTheme);
+            }
+        }
+
         observer.observe(document.querySelector('section'));
 
         // Initialize all fixes when DOM is loaded
@@ -890,6 +948,9 @@
             initializeMobileMenu();
             enhanceWorkCategories();
             populateWorks('all'); // Initialize work grid
+            fixHeroImage();
+            fixDarkModeToggle();
+            enhanceWorkCategories();
         });
     </script>
 </body>
