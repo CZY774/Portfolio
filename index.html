@@ -544,8 +544,9 @@
         // Initialize AOS with mobile-friendly settings
         AOS.init({
             duration: 1000,
-            once: true,
-            disable: false
+            once: false, // Enables animations on scroll up
+            mirror: true, // Enables reverse animations
+            anchorPlacement: 'top-bottom'
         });
 
         // Improved Dark Mode Toggle with localStorage persistence
@@ -580,31 +581,34 @@
             setTheme(newTheme);
         });
 
-        // Improved Mobile Menu Toggle
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
-        
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            // Update icon
-            const icon = menuToggle.querySelector('i');
-            if (mobileMenu.classList.contains('active')) {
-                icon.setAttribute('data-feather', 'x');
-            } else {
-                icon.setAttribute('data-feather', 'menu');
-            }
-            feather.replace();
-        });
 
-        // Close mobile menu when clicking a link
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
+        // Improve mobile menu visibility and functionality
+        function initializeMobileMenu() {
+            // Always ensure menu toggle is visible on mobile
+            if (window.innerWidth <= 768) {
+                menuToggle.style.display = 'block';
+            }
+
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+                // Update icon
                 const icon = menuToggle.querySelector('i');
-                icon.setAttribute('data-feather', 'menu');
+                icon.setAttribute('data-feather', mobileMenu.classList.contains('active') ? 'x' : 'menu');
                 feather.replace();
             });
-        });
+
+            // Close menu on window resize if screen becomes larger
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    mobileMenu.classList.remove('active');
+                    menuToggle.style.display = 'none';
+                } else {
+                    menuToggle.style.display = 'block';
+                }
+            });
+        }
 
         // Tools Grid
         const toolsData = [
@@ -733,7 +737,17 @@
                     workDiv.className = 'group relative overflow-hidden rounded-lg shadow-lg';
                     workDiv.setAttribute('data-aos', 'fade-up');
                     
-                    const content = `
+                    const lookCloserButton = item.type === 'photo' ? 
+                        `<button class="mt-4 inline-flex items-center text-blue-400 hover:text-blue-300 look-closer" data-image="${item.image}">
+                            Look Closer <i data-feather="maximize-2" class="ml-2 w-4 h-4"></i>
+                        </button>` : '';
+                    
+                    const videoButton = item.videoUrl ? 
+                        `<button class="mt-4 inline-flex items-center text-blue-400 hover:text-blue-300 play-video" data-url="${item.videoUrl}">
+                            Play Video <i data-feather="play" class="ml-2 w-4 h-4"></i>
+                        </button>` : '';
+                    
+                    workDiv.innerHTML = `
                         <img src="${item.image}" alt="${item.title}" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
                             <h3 class="text-white text-xl font-bold">${item.title}</h3>
@@ -741,17 +755,48 @@
                             ${item.link ? `<a href="${item.link}" target="_blank" class="mt-4 inline-flex items-center text-blue-400 hover:text-blue-300">
                                 View Project <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
                             </a>` : ''}
-                            ${item.videoUrl ? `<button class="mt-4 inline-flex items-center text-blue-400 hover:text-blue-300 play-video" data-url="${item.videoUrl}">
-                                Play Video <i data-feather="play" class="ml-2 w-4 h-4"></i>
-                            </button>` : ''}
+                            ${lookCloserButton}
+                            ${videoButton}
                         </div>
                     `;
                     
-                    workDiv.innerHTML = content;
                     workGrid.appendChild(workDiv);
                 });
                 feather.replace();
         }
+
+        function createImageModal() {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black/90 z-50 flex items-center justify-center hidden';
+            modal.innerHTML = `
+                <div class="relative w-full h-full p-4 flex items-center justify-center">
+                    <button class="absolute top-4 right-4 text-white hover:text-blue-400" id="close-image-modal">
+                        <i data-feather="x" class="w-8 h-8"></i>
+                    </button>
+                    <img class="max-w-full max-h-full object-contain" src="" alt="Full size image">
+                </div>
+            `;
+            document.body.appendChild(modal);
+            feather.replace();
+            
+            return modal;
+        }
+
+        const imageModal = createImageModal();
+
+        // Handle look closer buttons
+        document.addEventListener('click', e => {
+            if (e.target.closest('.look-closer')) {
+                const button = e.target.closest('.look-closer');
+                const imgSrc = button.dataset.image;
+                imageModal.querySelector('img').src = imgSrc;
+                imageModal.classList.remove('hidden');
+            }
+            
+            if (e.target.closest('#close-image-modal')) {
+                imageModal.classList.add('hidden');
+            }
+        });
 
         // Initialize work grid
         populateWorks();
@@ -760,8 +805,14 @@
         const filterButtons = document.querySelectorAll('.work-filter');
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Update active state
-                filterButtons.forEach(btn => btn.classList.remove('active', 'bg-blue-500', 'text-white'));
+                // Remove active state from all buttons
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-blue-500', 'text-white');
+                    btn.classList.add('dark:bg-gray-700', 'bg-gray-200');
+                });
+                
+                // Add active state to clicked button
+                button.classList.remove('dark:bg-gray-700', 'bg-gray-200');
                 button.classList.add('active', 'bg-blue-500', 'text-white');
                 
                 // Filter works
@@ -791,12 +842,12 @@
             const modal = document.createElement('div');
             modal.className = 'fixed inset-0 bg-black/90 z-50 flex items-center justify-center hidden';
             modal.innerHTML = `
-                <div class="relative w-full max-w-4xl mx-4">
-                    <button class="absolute-top-10 right-0 text-white hover:text-blue-400" id="close-modal">
+                <div class="relative w-full max-w-[90%] mx-4">
+                    <button class="absolute -top-10 right-0 text-white hover:text-blue-400" id="close-modal">
                         <i data-feather="x" class="w-8 h-8"></i>
                     </button>
                     <div class="aspect-w-16 aspect-h-9">
-                        <iframe class="w-full h-full" frameborder="0" allowfullscreen></iframe>
+                        <iframe class="w-full h-[80vh]" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             `;
@@ -833,6 +884,13 @@
         );
 
         observer.observe(document.querySelector('section'));
+
+        // Initialize all fixes when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeMobileMenu();
+            enhanceWorkCategories();
+            populateWorks('all'); // Initialize work grid
+        });
     </script>
 </body>
 </html>
