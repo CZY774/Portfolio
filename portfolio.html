@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cornelius Yoga | Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.png">
+
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwindcss.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
@@ -20,16 +23,15 @@
     }
 
     .hero-title {
-        font-size: clamp(6.5rem, 8vw, 4rem);
-        line-height: 1.2;
-        padding: 0 1rem;
+        font-size: clamp(2.5rem, 8vw, 6.5rem);
+        line-height: 1;
+        letter-spacing: -0.02em;
     }
 
     @media (max-width: 768px) {
         .hero-title {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            line-height: 1.2;
-            padding: 0 1rem;
+            font-size: clamp(2rem, 6vw, 3rem);
+            padding: 0;
         }
         
         #menu-toggle {
@@ -100,6 +102,54 @@
         align-items: center;
         gap: 2rem;
     }
+
+    @keyframes blob {
+        0% { transform: translate(0px, 0px) scale(1); }
+        33% { transform: translate(30px, -50px) scale(1.1); }
+        66% { transform: translate(-20px, 20px) scale(0.9); }
+        100% { transform: translate(0px, 0px) scale(1); }
+    }
+
+    @keyframes gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .animate-blob {
+        animation: blob 7s infinite;
+    }
+
+    .animation-delay-2000 {
+        animation-delay: 2s;
+    }
+
+    .animation-delay-4000 {
+        animation-delay: 4s;
+    }
+
+    .animate-gradient {
+        background-size: 200% 200%;
+        animation: gradient 8s linear infinite;
+    }
+
+    .typewriter {
+        border-right: 2px solid rgba(0,0,0,.75);
+        animation: blink .75s step-end infinite;
+    }
+
+    @keyframes blink {
+        from, to { 
+            border-color: transparent 
+        }
+        50% { 
+            border-color: currentColor;
+        }
+    }
+
+    .text-xl.lg\:text-2xl.dark\:text-gray-400.text-gray-600 {
+        @apply text-gray-800 dark:text-gray-400;
+    }
 </style>
 <body class="transition-colors duration-200 dark:bg-gray-900 bg-white dark:text-white text-gray-900">
     <!-- Navigation -->
@@ -138,28 +188,170 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-blue-900">
-        <div class="text-center px-6" data-aos="fade-up">
-            <h1 class="hero-title font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
-                CORNELIUS YOGA
-            </h1>
-            <p class="text-xl md:text-2xl dark:text-gray-300 text-gray-600">
-                Multimedia Expert & Technology Enthusiast
-            </p>
+    <section class="min-h-screen relative overflow-hidden transition-colors duration-200 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-900 dark:to-black bg-gradient-to-br from-white via-gray-100 to-gray-200">
+        <!-- Animated background elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 dark:opacity-20 opacity-5 animate-blob"></div>
+            <div class="absolute top-0 -right-4 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 dark:opacity-20 opacity-5 animate-blob animation-delay-2000"></div>
+            <div class="absolute -bottom-8 left-20 w-72 h-72 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 dark:opacity-20 opacity-5 animate-blob animation-delay-4000"></div>
+        </div>
+
+        <!-- Grid pattern overlay -->
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBoMzB2MzBIMzB6IiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvZz48L3N2Zz4=')] opacity-20 dark:opacity-20 opacity-5"></div>
+
+        <!-- Main content -->
+        <div class="container mx-auto px-6 min-h-screen flex items-center relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <!-- Text Column -->
+                <div class="space-y-8" data-aos="fade-up" data-aos-duration="1000">
+                    <!-- Small heading -->
+                    <div class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full p-1 pl-2 pr-4 backdrop-blur-sm">
+                        <span class="flex h-2 w-2 rounded-full bg-blue-500"></span>
+                        <span class="text-sm dark:text-blue-200 text-blue-600">Hello there!</span>
+                    </div>
+
+                    <!-- Main heading -->
+                    <h1 class="space-y-3">
+                        <span class="block text-5xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 animate-gradient">
+                            CORNELIUS 
+                        </span>
+                        <span class="block text-5xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 animate-gradient">
+                            YOGA
+                        </span>
+                    </h1>
+
+                    <!-- Description with typing effect -->
+                    <p class="text-xl lg:text-2xl dark:text-gray-400 text-gray-600 max-w-2xl typewriter">
+                        Transforming ideas into impactful digital experiences through innovative multimedia solutions and technical excellence.
+                    </p>
+
+                    <!-- Stats -->
+                    <div class="flex gap-8 py-8">
+                        <div>
+                            <div class="text-3xl font-bold dark:text-white text-gray-900">5+</div>
+                            <div class="dark:text-gray-400 text-gray-600">Years Experience</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold dark:text-white text-gray-900">200+</div>
+                            <div class="dark:text-gray-400 text-gray-600">Content Produced</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold dark:text-white text-gray-900">10+</div>
+                            <div class="dark:text-gray-400 text-gray-600">Involved Projects/Events</div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" 
+                        class="group relative px-6 py-3 rounded-lg overflow-hidden bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                            <span class="relative z-10 flex items-center gap-2">
+                                Contact Me
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </span>
+                        </a>
+                        <a href="#work" 
+                        class="group px-6 py-3 rounded-lg border dark:border-gray-700 border-gray-300 dark:text-white text-gray-900 dark:hover:bg-white/5 hover:bg-gray-100 transition-all duration-300">
+                            View Portfolio
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image Column -->
+                <div class="relative lg:h-[600px] h-[400px] hidden md:block" data-aos="fade-left" data-aos-duration="1000">
+                    <!-- Glassmorphism card -->
+                    <div class="relative w-full h-full rounded-2xl overflow-hidden backdrop-blur-sm dark:bg-white/5 bg-white/50 dark:border-white/10 border-gray-200/50 border shadow-2xl">
+                        <!-- Image container -->
+                        <div class="absolute inset-0">
+                            <!-- Gradient overlays -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10"></div>
+                            <div class="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent z-10"></div>
+                            
+                            <img 
+                                src="img/profile_4.jpg"
+                                alt="Cornelius Yoga" 
+                                class="h-full w-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            >
+                        </div>
+
+                        <!-- Floating badges -->
+                        <div class="absolute bottom-8 left-8 right-8 z-20 flex flex-wrap gap-3">
+                            <span class="px-3 py-1 rounded-full text-sm dark:bg-white/10 bg-white/70 backdrop-blur-sm dark:border-white/20 border-gray-200 border text-gray-900 dark:text-white">Shortmovie Director</span>
+                            <span class="px-3 py-1 rounded-full text-sm dark:bg-white/10 bg-white/70 backdrop-blur-sm dark:border-white/20 border-gray-200 border text-gray-900 dark:text-white">Content Creator</span>
+                            <span class="px-3 py-1 rounded-full text-sm dark:bg-white/10 bg-white/70 backdrop-blur-sm dark:border-white/20 border-gray-200 border text-gray-900 dark:text-white">Developer</span>
+                        </div>
+                    </div>
+
+                    <!-- Decorative elements -->
+                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-blue-500 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
+                    <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-purple-500 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
+                </div>
+            </div>
         </div>
     </section>
 
+    
     <!-- About Section -->
     <section id="about" class="py-20 dark:bg-gray-800 bg-gray-50">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold mb-16 text-center" data-aos="fade-up">About Me</h2>
+            <h2 class="text-4xl font-bold mb-16 text-center" data-aos="fade-up">Professional Journey</h2>
             
-            <div class="grid md:grid-cols-2 gap-12" data-aos="fade-up" data-aos-delay="200">
-                <!-- Professional Profile & Skills -->
-                <div>
+            <div class="grid md:grid-cols-2 gap-20" data-aos="fade-up" data-aos-delay="200">
+                <!-- Filmmaking & Content Creation -->
+                <div class="space-y-6" data-aos="fade-right">
                     <h3 class="text-2xl font-bold mb-4">Professional Profile</h3>
-                    <p class="dark:text-gray-300 text-gray-600 mb-6">Professional multimedia and technology expert with 5+ years of experience in digital project management and system installation. Proven track record of improving system efficiency by 20% through software optimization and troubleshooting. Successfully increased social media engagement by 150% through creative content production.</p>
-                    
+                    <!-- Journey overview -->
+                <p class="text-lg md:text-xl leading-relaxed dark:text-gray-300 text-gray-700">
+                    Results-driven multimedia and technology professional with <span class="font-semibold text-blue-500">5+ years</span> of progressive experience spanning digital content creation, system optimization, and project leadership.
+                </p>
+                
+                <!-- Key achievements -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
+                                <i data-feather="users" class="w-5 h-5 text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Leadership Impact</h4>
+                                <p class="dark:text-gray-400 text-gray-600">Managed 50+ team members in international events with 500+ participants from 3 countries</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center">
+                                <i data-feather="trending-up" class="w-5 h-5 text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Engagement Growth</h4>
+                                <p class="dark:text-gray-400 text-gray-600">Achieved 150% increase in social media views and 60% growth in audience interaction</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-blue-500 flex items-center justify-center">
+                                <i data-feather="code" class="w-5 h-5 text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Technical Excellence</h4>
+                                <p class="dark:text-gray-400 text-gray-600">Full-stack development expertise combined with creative multimedia production skills</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-blue-500 flex items-center justify-center">
+                                <i data-feather="book" class="w-5 h-5 text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Educational Impact</h4>
+                                <p class="dark:text-gray-400 text-gray-600">Mentored 200+ computer science students with 90% satisfaction rate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div>                   
                     <h3 class="text-2xl font-bold mb-4">Technical Skills</h3>
                     <div class="mb-6 space-y-4">
                         <div class="dark:bg-gray-700 bg-white p-4 rounded-lg shadow-lg">
@@ -192,15 +384,16 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Tools Section -->
-                <div class="tools-section">
-                    <h3 class="text-2xl font-bold mb-6">Tools I Use</h3>
-                    <div class="tools-grid">
-                        <!-- Tools will be populated by JavaScript -->
+                    <!-- Tools Section -->
+                    <div class="tools-section">
+                        <h3 class="text-2xl font-bold mb-6">Tools I Use</h3>
+                        <div class="tools-grid">
+                            <!-- Tools will be populated by JavaScript -->
+                        </div>
                     </div>
                 </div>
+
             </div>
 
             <!-- Career Summary -->
@@ -224,7 +417,7 @@
                                 <div class="dark:bg-gray-700 bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
                                     <div class="absolute left-0 top-0 h-full w-2 bg-blue-500 rounded-l-lg"></div>
                                     <div class="ml-4">
-                                        <h4 class="text-xl font-bold">Universitas Kristen Satya Wacana</h4>
+                                        <h4 class="text-xl font-bold">Satya Wacana Christian University</h4>
                                         <p class="text-gray-500">Aug 2022 - Present</p>
                                         <div class="mt-4 dark:text-gray-300 text-gray-600">
                                             <p class="font-semibold">Committee Chairman, Publication & Documentation Coordinator, Teaching Assistant</p>
@@ -250,10 +443,10 @@
                                 <div class="dark:bg-gray-700 bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
                                     <div class="absolute left-0 top-0 h-full w-2 bg-purple-500 rounded-l-lg"></div>
                                     <div class="ml-4">
-                                        <h4 class="text-xl font-bold">Komisi Remaja Metanoia GKMI Kudus</h4>
+                                        <h4 class="text-xl font-bold">Metanoia Youth Commission GKMI Kudus</h4>
                                         <p class="text-gray-500">Jul 2017 - Jul 2022</p>
                                         <div class="mt-4 dark:text-gray-300 text-gray-600">
-                                            <p class="font-semibold">Committee Chairman, Media Coordinator & Member</p>
+                                            <p class="font-semibold">Committee Chairman, Media Coordinator & Member, Director</p>
                                             <ul class="mt-2 list-disc list-inside space-y-2">
                                                 <li class="transform hover:translate-x-2 transition-transform">Increased social media engagement by 10%</li>
                                                 <li class="transform hover:translate-x-2 transition-transform">Produced 10+ content with 100+ average engagement</li>
@@ -279,11 +472,11 @@
                                         <h4 class="text-xl font-bold">SMAN 1 Kudus</h4>
                                         <p class="text-gray-500">Oct 2020 - Oct 2021</p>
                                         <div class="mt-4 dark:text-gray-300 text-gray-600">
-                                            <p class="font-semibold">ICT Division Head, Committee Chairman, Documentation Coordinator</p>
+                                            <p class="font-semibold">Head of ICT Division (Student Council), Committee Head, Documentation Coordinator, Director</p>
                                             <ul class="mt-2 list-disc list-inside space-y-2">
                                                 <li class="transform hover:translate-x-2 transition-transform">Produced 30+ photo/video content with 200+ average engagement</li>
                                                 <li class="transform hover:translate-x-2 transition-transform">Managed 3 social media platforms with 8K+ followers</li>
-                                                <li class="transform hover:translate-x-2 transition-transform">Won 2nd place in school short movie competition</li>
+                                                <li class="transform hover:translate-x-2 transition-transform">Won 2nd place in school short movie competition as Director, D.O.P., & Editor</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -449,43 +642,71 @@
         const workItems = [
             {
                 type: 'web',
-                title: 'Personal Blog',
-                image: '/api/placeholder/400/300',
-                link: 'https://example.com/blog',
-                description: 'Personal blog built with React and Tailwind'
+                title: 'Muncul River Tubing',
+                image: 'img/website_1.png',
+                link: 'https://munculrivertubing.com',
+                description: 'Bussiness website built with Laravel'
             },
             {
                 type: 'web',
-                title: 'E-commerce Site',
-                image: '/api/placeholder/400/300',
-                link: 'https://example.com/shop',
-                description: 'Full-stack e-commerce platform'
+                title: 'Kapita Selekta Alfamart',
+                image: 'img/website_2.png',
+                link: 'https://yoga-672022204-service-975615093796.asia-southeast2.run.app/',
+                description: 'VMS platform using Python, Flask, Redis, MongoDB, & deployed on GCP'
             },
             {
                 type: 'photo',
-                title: 'Nature Collection',
-                image: '/api/placeholder/400/300',
+                title: 'Shutter Bliss',
+                image: 'img/photo_1.jpg',
                 description: 'Photography series exploring nature'
             },
             {
                 type: 'photo',
-                title: 'Portrait Series',
-                image: '/api/placeholder/400/300',
+                title: 'Street Snapshot',
+                image: 'img/photo_2.jpg',
                 description: 'Professional portrait photography'
             },
             {
                 type: 'video',
-                title: 'Event Highlights',
-                image: '/api/placeholder/400/300',
-                videoUrl: 'https://example.com/video1',
-                description: 'Campus event highlight reel'
+                title: 'SMASA MMXXII Last Ceremony',
+                image: 'img/video_1.jpg',
+                videoUrl: 'https://www.youtube.com/embed/TXQzKo2j-ok',
+                description: 'Senior High School 1 Kudus Batch 2022 Last Ceremony'
             },
             {
                 type: 'video',
-                title: 'Short Film',
-                image: '/api/placeholder/400/300',
-                videoUrl: 'https://example.com/video2',
-                description: 'Award-winning short film'
+                title: 'Kita Satu Rumah',
+                image: 'img/video_2.jpg',
+                videoUrl: 'https://www.youtube.com/embed/qjXdFmMGn84',
+                description: 'Youth Leadership Camp 2022 Shortmovie'
+            },
+            {
+                type: 'video',
+                title: 'Company Visit 2024 Aftermovie',
+                image: 'img/video_4.jpg',
+                videoUrl: 'https://www.youtube.com/embed/BAlP_WjAJGc',
+                description: 'Informatics Engineering goes to Jakarta'
+            },
+            {
+                type: 'video',
+                title: 'FIT Competition 2023 Aftermovie',
+                image: 'img/video_6.png',
+                videoUrl: 'https://www.youtube.com/embed/28RYBWVHs1I',
+                description: 'Edited with Adobe Premiere Pro'
+            },
+            {
+                type: 'video',
+                title: 'Smasa Euforia 2021 Aftermovie',
+                image: 'img/video_5.jpg',
+                videoUrl: 'https://www.youtube.com/embed/Iqdgfxyt6Nw',
+                description: 'Senior High School 1 Kudus Annual Event'
+            },
+            {
+                type: 'video',
+                title: 'Berbalik',
+                image: 'img/video_3.jpg',
+                videoUrl: 'https://www.youtube.com/embed/PKvTvR8fGYA',
+                description: 'Metanoia Youth 43-rd Anniversary 2022 Shortmovie'
             }
         ];
 
@@ -559,7 +780,7 @@
             modal.className = 'fixed inset-0 bg-black/90 z-50 flex items-center justify-center hidden';
             modal.innerHTML = `
                 <div class="relative w-full max-w-4xl mx-4">
-                    <button class="absolute -top-10 right-0 text-white hover:text-blue-400" id="close-modal">
+                    <button class="absolute-top-10 right-0 text-white hover:text-blue-400" id="close-modal">
                         <i data-feather="x" class="w-8 h-8"></i>
                     </button>
                     <div class="aspect-w-16 aspect-h-9">
