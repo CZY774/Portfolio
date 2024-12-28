@@ -211,6 +211,10 @@
                     <a href="#about" class="hover:text-blue-500 transition">About</a>
                     <a href="#work" class="hover:text-blue-500 transition">Work</a>
                     <a href="#contact" class="hover:text-blue-500 transition">Contact</a>
+                    <button id="theme-toggle" class="theme-toggle hidden dark:bg-gray-800 bg-gray-200">
+                        <i data-feather="moon" class="hidden dark:block w-5 h-5"></i>
+                        <i data-feather="sun" class="block dark:hidden w-5 h-5"></i>
+                    </button>
                 </div>
                 <!-- Mobile Menu Button -->
                 <button class="md:hidden p-2 z-50" id="menu-toggle">
@@ -224,6 +228,10 @@
                 <a href="#about" class="block hover:text-blue-500 py-2">About</a>
                 <a href="#work" class="block hover:text-blue-500 py-2">Work</a>
                 <a href="#contact" class="block hover:text-blue-500 py-2">Contact</a>
+                <button id="theme-toggle-mobile" class="theme-toggle hidden dark:bg-gray-800 bg-gray-200">
+                    <i data-feather="moon" class="hidden dark:block w-5 h-5"></i>
+                    <i data-feather="sun" class="block dark:hidden w-5 h-5"></i>
+                </button>
             </div>
         </div>
     </nav>
@@ -278,7 +286,7 @@
                         </div>
                         <div>
                             <div class="text-3xl font-bold dark:text-white text-gray-900">10+</div>
-                            <div class="dark:text-gray-400 text-gray-600">Involved in Projects/Events</div>
+                            <div class="dark:text-gray-400 text-gray-600">Involved in Events</div>
                         </div>
                     </div>
 
@@ -569,11 +577,6 @@
                     <i data-feather="github"></i>
                 </a>
             </div>
-
-            <button id="theme-toggle" class="theme-toggle hidden">
-                <i data-feather="moon" class="hidden dark:block w-6 h-6"></i>
-                <i data-feather="sun" class="block dark:hidden w-6 h-6"></i>
-            </button>
             
             <footer class="dark:bg-gray-800 bg-gray-50">
                 <div class="container mx-auto px-6">
@@ -596,6 +599,67 @@
             mirror: true, // Enables reverse animations
             anchorPlacement: 'top-bottom'
         });
+
+        // Improved Dark Mode Toggle with localStorage persistence
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or system preference
+        const getPreferredTheme = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                return savedTheme;
+            }
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        };
+
+        // Apply theme
+        const setTheme = (theme) => {
+            if (theme === 'dark') {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+            localStorage.setItem('theme', theme);
+        };
+
+        // Initial theme setup
+        setTheme(getPreferredTheme());
+
+        // Theme toggle click handler
+        themeToggle.addEventListener('click', () => {
+            const newTheme = html.classList.contains('dark') ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Improve mobile menu visibility and functionality
+        function initializeMobileMenu() {
+            // Always ensure menu toggle is visible on mobile
+            if (window.innerWidth <= 768) {
+                menuToggle.style.display = 'block';
+            }
+
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+                // Update icon
+                const icon = menuToggle.querySelector('i');
+                icon.setAttribute('data-feather', mobileMenu.classList.contains('active') ? 'x' : 'menu');
+                feather.replace();
+            });
+
+            // Close menu on window resize if screen becomes larger
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    mobileMenu.classList.remove('active');
+                    menuToggle.style.display = 'none';
+                } else {
+                    menuToggle.style.display = 'block';
+                }
+            });
+        }
 
         // Tools Grid
         const toolsData = [
@@ -902,10 +966,20 @@
             }
         });
 
+        // Intersection Observer for navbar background
+        const nav = document.querySelector('nav');
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                nav.classList.toggle('shadow-lg', !entry.isIntersecting);
+            },
+            { threshold: 0.9 }
+        );
+
+        observer.observe(document.querySelector('section'));
+
         // Initialize all fixes when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             initializeMobileMenu();
-            enhanceWorkCategories();
             populateWorks('all'); // Initialize work grid
         });
     </script>
