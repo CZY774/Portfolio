@@ -12,6 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 <style>
     :root {
@@ -22,17 +23,44 @@
         transition: background-color 0.3s ease, color 0.3s ease;
     }
     
-    ::-webkit-scrollbar {
-        width: 8px;
+    @media (prefers-color-scheme: dark) {
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1F2937;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #4F46E5;
+            border-radius: 4px;
+        }
     }
 
-    ::-webkit-scrollbar-track {
-        background: transparent;
+    @media (prefers-color-scheme: light) {
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F3F4F6;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #4F46E5;
+            border-radius: 4px;
+        }
     }
 
-    ::-webkit-scrollbar-thumb {
-        background: #4F46E5;
-        border-radius: 4px;
+    .lang-icon {
+        font-size: 2.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .lang-icon:hover {
+        transform: scale(1.1);
+        filter: brightness(1.2);
     }
 
     .hero-title {
@@ -70,14 +98,22 @@
     }
 
     .theme-toggle {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
         z-index: 50;
-        padding: 0.5rem;
+        padding: 1rem;
         border-radius: 9999px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background-color 0.3s ease;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
     }
+
+    .theme-toggle:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 12px -1px rgba(0, 0, 0, 0.2);
+    }f
 
     .mobile-menu {
         transform: translateY(-100%);
@@ -175,10 +211,6 @@
                     <a href="#about" class="hover:text-blue-500 transition">About</a>
                     <a href="#work" class="hover:text-blue-500 transition">Work</a>
                     <a href="#contact" class="hover:text-blue-500 transition">Contact</a>
-                    <button id="theme-toggle" class="theme-toggle dark:bg-gray-800 bg-gray-200">
-                        <i data-feather="moon" class="hidden dark:block w-5 h-5"></i>
-                        <i data-feather="sun" class="block dark:hidden w-5 h-5"></i>
-                    </button>
                 </div>
                 <!-- Mobile Menu Button -->
                 <button class="md:hidden p-2 z-50" id="menu-toggle">
@@ -192,10 +224,6 @@
                 <a href="#about" class="block hover:text-blue-500 py-2">About</a>
                 <a href="#work" class="block hover:text-blue-500 py-2">Work</a>
                 <a href="#contact" class="block hover:text-blue-500 py-2">Contact</a>
-                <button id="theme-toggle-mobile" class="theme-toggle dark:bg-gray-800 bg-gray-200">
-                    <i data-feather="moon" class="hidden dark:block w-5 h-5"></i>
-                    <i data-feather="sun" class="block dark:hidden w-5 h-5"></i>
-                </button>
             </div>
         </div>
     </nav>
@@ -245,12 +273,12 @@
                             <div class="dark:text-gray-400 text-gray-600">Years Experience</div>
                         </div>
                         <div>
-                            <div class="text-3xl font-bold dark:text-white text-gray-900">200+</div>
+                            <div class="text-3xl font-bold dark:text-white text-gray-900">300+</div>
                             <div class="dark:text-gray-400 text-gray-600">Content Produced</div>
                         </div>
                         <div>
                             <div class="text-3xl font-bold dark:text-white text-gray-900">10+</div>
-                            <div class="dark:text-gray-400 text-gray-600">Involved Projects/Events</div>
+                            <div class="dark:text-gray-400 text-gray-600">Involved in Projects/Events</div>
                         </div>
                     </div>
 
@@ -367,32 +395,32 @@
                 <div>                   
                     <h3 class="text-2xl font-bold mb-4">Technical Skills</h3>
                     <div class="mb-6 space-y-4">
-                        <div class="dark:bg-gray-700 bg-white p-4 rounded-lg shadow-lg">
-                            <h4 class="text-xl mb-2">Languages & Frameworks</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-blue-500 text-white rounded-full text-sm">C</span>
-                                <span class="px-3 py-1 bg-blue-500 text-white rounded-full text-sm">C++</span>
-                                <span class="px-3 py-1 bg-red-500 text-white rounded-full text-sm">HTML</span>
-                                <span class="px-3 py-1 bg-green-500 text-white rounded-full text-sm">CSS</span>
-                                <span class="px-3 py-1 bg-yellow-500 text-white rounded-full text-sm">JavaScript</span>
-                                <span class="px-3 py-1 bg-blue-500 text-white rounded-full text-sm">Python</span>
-                                <span class="px-3 py-1 bg-purple-500 text-white rounded-full text-sm">PHP</span>
-                                <span class="px-3 py-1 bg-pink-500 text-white rounded-full text-sm">Java</span>
-                                <span class="px-3 py-1 bg-indigo-500 text-white rounded-full text-sm">Kotlin</span>
-                                <span class="px-3 py-1 bg-gray-500 text-white rounded-full text-sm">Laravel</span>
-                                <span class="px-3 py-1 bg-gray-500 text-white rounded-full text-sm">Bootstrap</span>
-                                <span class="px-3 py-1 bg-gray-500 text-white rounded-full text-sm">Tailwind CSS</span>
+                        <div class="dark:bg-gray-700 bg-white p-6 rounded-lg shadow-lg">
+                            <h4 class="text-xl mb-6">Languages & Frameworks</h4>
+                            <div class="grid grid-cols-3 md:grid-cols-6 gap-6">
+                                <i class="devicon-c-plain colored lang-icon" title="C"></i>
+                                <i class="devicon-cplusplus-plain colored lang-icon" title="C++"></i>
+                                <i class="devicon-html5-plain colored lang-icon" title="HTML5"></i>
+                                <i class="devicon-css3-plain colored lang-icon" title="CSS3"></i>
+                                <i class="devicon-javascript-plain colored lang-icon" title="JavaScript"></i>
+                                <i class="devicon-python-plain colored lang-icon" title="Python"></i>
+                                <i class="devicon-php-plain colored lang-icon" title="PHP"></i>
+                                <i class="devicon-java-plain colored lang-icon" title="Java"></i>
+                                <i class="devicon-kotlin-plain colored lang-icon" title="Kotlin"></i>
+                                <i class="devicon-laravel-plain colored lang-icon" title="Laravel"></i>
+                                <i class="devicon-bootstrap-plain colored lang-icon" title="Bootstrap"></i>
+                                <i class="devicon-tailwindcss-plain colored lang-icon" title="Tailwind CSS"></i>
                                 <!-- Add more skills -->
                             </div>
                         </div>
                         
-                        <div class="dark:bg-gray-700 bg-white p-4 rounded-lg shadow-lg">
-                            <h4 class="text-xl mb-2">Database & Infrastructure</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-green-500 text-white rounded-full text-sm">MySQL</span>
-                                <span class="px-3 py-1 bg-red-500 text-white rounded-full text-sm">MongoDB</span>
-                                <span class="px-3 py-1 bg-blue-500 text-white rounded-full text-sm">Redis</span>
-                                <span class="px-3 py-1 bg-yellow-500 text-white rounded-full text-sm">Google Cloud Platform</span>
+                        <div class="dark:bg-gray-700 bg-white p-6 rounded-lg shadow-lg">
+                            <h4 class="text-xl mb-6">Database & Infrastructure</h4>
+                            <div class="grid grid-cols-3 md:grid-cols-6 gap-6">
+                                <i class="devicon-mysql-plain colored lang-icon" title="MySQL"></i>
+                                <i class="devicon-mongodb-plain colored lang-icon" title="MongoDB"></i>
+                                <i class="devicon-redis-plain colored lang-icon" title="Redis"></i>
+                                <i class="devicon-googlecloud-plain colored lang-icon" title="Google Cloud Platform"></i>
                                 <!-- Add more skills -->
                             </div>
                         </div>
@@ -541,6 +569,11 @@
                     <i data-feather="github"></i>
                 </a>
             </div>
+
+            <button id="theme-toggle" class="theme-toggle hidden">
+                <i data-feather="moon" class="hidden dark:block w-6 h-6"></i>
+                <i data-feather="sun" class="block dark:hidden w-6 h-6"></i>
+            </button>
             
             <footer class="dark:bg-gray-800 bg-gray-50">
                 <div class="container mx-auto px-6">
@@ -563,67 +596,6 @@
             mirror: true, // Enables reverse animations
             anchorPlacement: 'top-bottom'
         });
-
-        // Improved Dark Mode Toggle with localStorage persistence
-        const themeToggle = document.getElementById('theme-toggle');
-        const html = document.documentElement;
-
-        // Check for saved theme preference or system preference
-        const getPreferredTheme = () => {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                return savedTheme;
-            }
-            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        };
-
-        // Apply theme
-        const setTheme = (theme) => {
-            if (theme === 'dark') {
-                html.classList.add('dark');
-            } else {
-                html.classList.remove('dark');
-            }
-            localStorage.setItem('theme', theme);
-        };
-
-        // Initial theme setup
-        setTheme(getPreferredTheme());
-
-        // Theme toggle click handler
-        themeToggle.addEventListener('click', () => {
-            const newTheme = html.classList.contains('dark') ? 'light' : 'dark';
-            setTheme(newTheme);
-        });
-
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        // Improve mobile menu visibility and functionality
-        function initializeMobileMenu() {
-            // Always ensure menu toggle is visible on mobile
-            if (window.innerWidth <= 768) {
-                menuToggle.style.display = 'block';
-            }
-
-            menuToggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('active');
-                // Update icon
-                const icon = menuToggle.querySelector('i');
-                icon.setAttribute('data-feather', mobileMenu.classList.contains('active') ? 'x' : 'menu');
-                feather.replace();
-            });
-
-            // Close menu on window resize if screen becomes larger
-            window.addEventListener('resize', () => {
-                if (window.innerWidth > 768) {
-                    mobileMenu.classList.remove('active');
-                    menuToggle.style.display = 'none';
-                } else {
-                    menuToggle.style.display = 'block';
-                }
-            });
-        }
 
         // Tools Grid
         const toolsData = [
@@ -929,17 +901,6 @@
                 videoModal.classList.remove('hidden');
             }
         });
-
-        // Intersection Observer for navbar background
-        const nav = document.querySelector('nav');
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                nav.classList.toggle('shadow-lg', !entry.isIntersecting);
-            },
-            { threshold: 0.9 }
-        );
-
-        observer.observe(document.querySelector('section'));
 
         // Initialize all fixes when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
