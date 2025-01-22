@@ -14,7 +14,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="stylesheet" href="style.css">
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwindcss.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -37,14 +37,16 @@
                     </button>
                 </div>
                 <!-- Mobile Menu Button -->
-                <button class="md:hidden p-2 z-50" id="menu-toggle">
-                    <i data-feather="menu" class="w-6 h-6"></i>
+                <button class="md:hidden hamburger p-2 z-50" id="menu-toggle">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
                 </button>
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div class="mobile-menu md:hidden" id="mobile-menu">
-            <div class="container mx-auto px-6 py-4 space-y-4">
+        <div class="mobile-menu md:hidden fixed inset-0 bg-white dark:bg-gray-900 z-50" id="mobile-menu">
+            <div class="container mx-auto px-6 py-4 mt-16 space-y-4">
                 <a href="#about" class="block hover:text-blue-500 py-2">About</a>
                 <a href="#work" class="block hover:text-blue-500 py-2">Work</a>
                 <a href="#contact" class="block hover:text-blue-500 py-2">Contact</a>
@@ -105,7 +107,7 @@
                             <div class="dark:text-gray-400 text-gray-600">Content Produced</div>
                         </div>
                         <div>
-                            <div class="text-3xl font-bold dark:text-white text-gray-900">10+</div>
+                            <div class="text-3xl font-bold dark:text-white text-gray-900">20+</div>
                             <div class="dark:text-gray-400 text-gray-600">Involved in Events</div>
                         </div>
                     </div>
@@ -159,15 +161,7 @@
                 </div>
             </div>
         </div>
-
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-            <span class="text-sm text-gray-500 dark:text-gray-400 mb-2">Scroll to explore</span>
-            <div class="w-6 h-10 border-2 border-gray-300 dark:border-gray-700 rounded-full p-1">
-                <div class="w-1.5 h-1.5 bg-gray-500 dark:bg-gray-400 rounded-full animate-bounce mx-auto"></div>
-            </div>
-        </div>
-    </section>
+</section>
 
     
     <!-- About Section -->
@@ -326,7 +320,7 @@
                                             <p class="font-semibold">Committee Chairman, Media Coordinator & Member, Director</p>
                                             <ul class="mt-2 list-disc list-inside space-y-2">
                                                 <li class="transform hover:translate-x-2 transition-transform">Increased social media engagement by 10%</li>
-                                                <li class="transform hover:translate-x-2 transition-transform">Produced 10+ content with 100+ average engagement</li>
+                                                <li class="transform hover:translate-x-2 transition-transform">Produced 20+ content with 100+ average engagement</li>
                                                 <li class="transform hover:translate-x-2 transition-transform">Implemented ProPresenter system with 80% efficiency increase</li>
                                             </ul>
                                         </div>
