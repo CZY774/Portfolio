@@ -49,9 +49,9 @@
             const menu = document.getElementById('mobile-menu');
             const toggle = document.getElementById('menu-toggle');
             const menuLinks = menu.querySelectorAll('a');
-            
+        
             if (!menu || !toggle) return;
-            
+        
             toggle.addEventListener('click', () => {
                 // Toggle hamburger animation
                 toggle.classList.toggle('active');
@@ -343,7 +343,13 @@
                         block: 'start'
                     });
                     // Close mobile menu if open
-                    mobileMenu.classList.add('hidden');
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const menuToggle = document.getElementById('menu-toggle');
+                    if (mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
                 }
             });
         });
@@ -398,6 +404,7 @@
 
         // Initialize all fixes when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
+            feather.replace();
             initializeMobileMenu();
             populateWorks('all'); // Initialize work grid
         });
