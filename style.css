@@ -212,6 +212,20 @@
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+    #home {
+        padding: 4rem 0rem; /* Add additional padding for mobile */
+    }
+    
+    .container {
+        padding-top: 2rem; /* Adjust container padding */
+    }
+    
+    /* Ensure the hello badge is visible */
+    .inline-flex.items-center.gap-2 {
+        margin-top: 1rem;
+    }
+
+    /* Adjust hero title font size */
     .hero-title {
         font-size: clamp(2rem, 8vw, 3.5rem);
         line-height: 1.2;
