@@ -210,6 +210,12 @@
 .mobile-menu.active a:nth-child(2) { transition-delay: 0.2s; }
 .mobile-menu.active a:nth-child(3) { transition-delay: 0.3s; }
 
+@media (max-height: 768px) {
+    #home {
+        padding: 6rem 0rem;
+    }
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     #home {

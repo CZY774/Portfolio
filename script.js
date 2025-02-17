@@ -129,6 +129,13 @@
                 description: 'VMS platform using Python, Flask, Redis, MongoDB, & deployed on GCP'
             },
             {
+                type: 'web',
+                title: 'Bubble Laundry',
+                image: 'img/website_3.png',
+                link: 'https://czy774.github.io/bubble_laundry/',
+                description: 'Self-service laundry website built with Bootstrap'
+            },
+            {
                 type: 'photo',
                 title: 'Shutter Bliss',
                 image: 'img/photo_1.jpg',
@@ -144,7 +151,7 @@
                 type: 'photo',
                 title: 'Step Up',
                 image: 'img/photo_3.png',
-                description: 'Metanoia Youth 45-th Anniversary 2022 Poster'
+                description: 'Metanoia Youth 45th Anniversary 2022 Poster'
             },
             {
                 type: 'photo',
@@ -198,28 +205,28 @@
                 title: 'Berbalik',
                 image: 'img/video_3.jpg',
                 videoUrl: 'https://www.youtube.com/embed/PKvTvR8fGYA',
-                description: 'Metanoia Youth 43-rd Anniversary 2020 Shortmovie'
+                description: 'Metanoia Youth 43rd Anniversary 2020 Shortmovie'
             },
             {
                 type: 'video',
                 title: 'Please Him',
                 image: 'img/video_7.jpg',
                 videoUrl: 'https://www.youtube.com/embed/PcezxGYzLS8',
-                description: 'Metanoia Youth 42-nd Anniversary 2019 Shortmovie'
+                description: 'Metanoia Youth 42nd Anniversary 2019 Shortmovie'
             },
             {
                 type: 'video',
                 title: 'Step Up',
                 image: 'img/video_8.jpg',
                 videoUrl: 'https://www.youtube.com/embed/8gnwVo94eoo',
-                description: 'Metanoia Youth 45-th Anniversary 2022 Shortmovie'
+                description: 'Metanoia Youth 45th Anniversary 2022 Shortmovie'
             },
             {
                 type: 'video',
                 title: 'Step Up Aftermovie',
                 image: 'img/video_11.jpg',
                 videoUrl: 'https://www.youtube.com/embed/sADc8-UGbxo',
-                description: 'Metanoia Youth 45-th Anniversary 2022 Aftermovie'
+                description: 'Metanoia Youth 45th Anniversary 2022 Aftermovie'
             },
             {
                 type: 'video',
