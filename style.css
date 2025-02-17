@@ -6,7 +6,6 @@
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Scrollbar Styles */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -24,7 +23,6 @@
     background: #1F2937;
 }
 
-/* Language Icons */
 .lang-icon {
     font-size: 2.5rem;
     transition: all 0.3s ease;
@@ -35,21 +33,18 @@
     filter: brightness(1.2);
 }
 
-/* Hero Section */
 .hero-title {
     font-size: clamp(2.5rem, 8vw, 6.5rem);
     line-height: 1;
     letter-spacing: -0.02em;
 }
 
-/* Navigation */
 .nav-items {
     display: flex;
     align-items: center;
     gap: 2rem;
 }
 
-/* Theme Toggle */
 .theme-toggle {
     position: fixed;
     bottom: 2rem;
@@ -68,7 +63,6 @@
     box-shadow: 0 8px 12px -1px rgba(0, 0, 0, 0.2);
 }
 
-/* Tools Grid */
 .tools-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -85,7 +79,6 @@
     height: 100%;
 }
 
-/* Animations */
 @keyframes blob {
     0% { transform: translate(0px, 0px) scale(1); }
     33% { transform: translate(30px, -50px) scale(1.1); }
@@ -126,7 +119,6 @@
     animation: blink .75s step-end infinite;
 }
 
-/* Hamburger Menu */
 .hamburger {
     position: relative;
     width: 24px;
@@ -157,7 +149,6 @@
     bottom: 6px;
 }
 
-/* Active state animations */
 .hamburger.active .hamburger-line:nth-child(1) {
     transform: translateY(5px) rotate(45deg);
 }
@@ -170,7 +161,6 @@
     transform: translateY(-5px) rotate(-45deg);
 }
 
-/* Mobile Menu */
 .mobile-menu {
     display: block;
     position: fixed;
@@ -193,7 +183,6 @@
     transform: translateY(0);
 }
 
-/* Mobile menu links animation */
 .mobile-menu a {
     display: block;
     transform: translateY(20px);
@@ -216,22 +205,23 @@
     }
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
     #home {
-        padding: 4rem 0rem; /* Add additional padding for mobile */
+        padding: 4rem 0rem;
+    
     }
     
     .container {
-        padding-top: 2rem; /* Adjust container padding */
+        padding-top: 2rem;
+    
     }
     
-    /* Ensure the hello badge is visible */
+
     .inline-flex.items-center.gap-2 {
         margin-top: 1rem;
     }
 
-    /* Adjust hero title font size */
+
     .hero-title {
         font-size: clamp(2rem, 8vw, 3.5rem);
         line-height: 1.2;
@@ -299,7 +289,6 @@
     }
 }
 
-/* Dark Mode Text */
 .text-xl.lg\:text-2xl.dark\:text-gray-400.text-gray-600 {
     @apply text-gray-800 dark:text-gray-400;
 }

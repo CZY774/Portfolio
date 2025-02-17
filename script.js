@@ -1,19 +1,15 @@
-        // Initialize Feather Icons
         feather.replace();
 
-        // Initialize AOS with mobile-friendly settings
         AOS.init({
             duration: 1000,
-            once: false, // Enables animations on scroll up
-            mirror: true, // Enables reverse animations
+            once: false,
+            mirror: true,
             anchorPlacement: 'top-bottom'
         });
 
-        // Improved Dark Mode Toggle with localStorage persistence
         const themeToggle = document.getElementById('theme-toggle');
         const html = document.documentElement;
 
-        // Check for saved theme preference or system preference
         const getPreferredTheme = () => {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme) {
@@ -22,7 +18,6 @@
             return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         };
 
-        // Apply theme
         const setTheme = (theme) => {
             if (theme === 'dark') {
                 html.classList.add('dark');
@@ -32,10 +27,8 @@
             localStorage.setItem('theme', theme);
         };
 
-        // Initial theme setup
         setTheme(getPreferredTheme());
 
-        // Theme toggle click handler
         themeToggle.addEventListener('click', () => {
             const newTheme = html.classList.contains('dark') ? 'light' : 'dark';
             setTheme(newTheme);
@@ -44,7 +37,6 @@
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        // Improve mobile menu visibility and functionality
         function initializeMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const toggle = document.getElementById('menu-toggle');
@@ -53,15 +45,11 @@
             if (!menu || !toggle) return;
         
             toggle.addEventListener('click', () => {
-                // Toggle hamburger animation
                 toggle.classList.toggle('active');
-                // Toggle mobile menu
                 menu.classList.toggle('active');
-                // Toggle body scroll
                 document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
             });
         
-            // Close menu when clicking a link
             menuLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     menu.classList.remove('active');
@@ -70,7 +58,6 @@
                 });
             });
         
-            // Close menu when clicking outside
             document.addEventListener('click', (e) => {
                 if (!menu.contains(e.target) && !toggle.contains(e.target) && menu.classList.contains('active')) {
                     menu.classList.remove('active');
@@ -80,7 +67,6 @@
             });
         }
 
-        // Tools Grid
         const toolsData = [
             { name: 'Visual Studio Code', icon: 'code' },
             { name: 'Adobe Illustrator', icon: 'pen-tool' },
@@ -103,7 +89,6 @@
             toolsGrid.appendChild(toolDiv);
         });
 
-        // Sync mobile theme toggle with desktop
         const themeToggleMobile = document.getElementById('theme-toggle-mobile');
         if (themeToggleMobile) {
             themeToggleMobile.addEventListener('click', () => {
@@ -112,7 +97,6 @@
             });
         }
 
-        // Work Items Data
         const workItems = [
             {
                 type: 'web',
@@ -244,7 +228,6 @@
             }
         ];
 
-        // Populate Work Grid
         const workGrid = document.querySelector('.grid-cols-1');
         function populateWorks(category = 'all') {
             workGrid.innerHTML = '';
@@ -302,7 +285,6 @@
 
         const imageModal = createImageModal();
 
-        // Handle look closer buttons
         document.addEventListener('click', e => {
             if (e.target.closest('.look-closer')) {
                 const button = e.target.closest('.look-closer');
@@ -316,30 +298,24 @@
             }
         });
 
-        // Initialize work grid
         populateWorks();
 
-        // Work Filter Functionality
         const filterButtons = document.querySelectorAll('.work-filter');
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Remove active state from all buttons
                 filterButtons.forEach(btn => {
                     btn.classList.remove('active', 'bg-blue-500', 'text-white');
                     btn.classList.add('dark:bg-gray-700', 'bg-gray-200');
                 });
                 
-                // Add active state to clicked button
                 button.classList.remove('dark:bg-gray-700', 'bg-gray-200');
                 button.classList.add('active', 'bg-blue-500', 'text-white');
                 
-                // Filter works
                 const category = button.dataset.category;
                 populateWorks(category);
             });
         });
 
-        // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -349,7 +325,6 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    // Close mobile menu if open
                     const mobileMenu = document.getElementById('mobile-menu');
                     const menuToggle = document.getElementById('menu-toggle');
                     if (mobileMenu.classList.contains('active')) {
@@ -361,7 +336,6 @@
             });
         });
 
-        // Video Player Modal
         function createVideoModal() {
             const modal = document.createElement('div');
             modal.className = 'fixed inset-0 bg-black/90 z-50 flex items-center justify-center hidden';
@@ -388,7 +362,6 @@
             videoModal.querySelector('iframe').src = '';
         });
 
-        // Handle video play buttons
         document.addEventListener('click', e => {
             if (e.target.closest('.play-video')) {
                 const button = e.target.closest('.play-video');
@@ -398,7 +371,6 @@
             }
         });
 
-        // Intersection Observer for navbar background
         const nav = document.querySelector('nav');
         const observer = new IntersectionObserver(
             ([entry]) => {
@@ -409,9 +381,8 @@
 
         observer.observe(document.querySelector('section'));
 
-        // Initialize all fixes when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             feather.replace();
             initializeMobileMenu();
-            populateWorks('all'); // Initialize work grid
+            populateWorks('all');
         });

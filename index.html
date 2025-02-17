@@ -21,12 +21,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"></script>
 </head>
 <body class="transition-colors duration-200 dark:bg-gray-900 bg-white dark:text-white text-gray-900">
-    <!-- Navigation -->
     <nav class="fixed w-screen bg-white dark:bg-gray-900 bg-opacity-90 dark:bg-opacity-90 z-40 shadow-lg">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="#home" class="text-2xl font-bold">CZY</a>
-                <!-- Desktop Menu -->
                 <div class="hidden md:flex nav-items">
                     <a href="#about" class="hover:text-blue-500 transition">About</a>
                     <a href="#work" class="hover:text-blue-500 transition">Work</a>
@@ -36,7 +34,6 @@
                         <i data-feather="sun" class="block dark:hidden w-5 h-5"></i>
                     </button>
                 </div>
-                <!-- Mobile Menu Button -->
                 <button class="md:hidden hamburger p-2 z-50" id="menu-toggle">
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
@@ -44,7 +41,6 @@
                 </button>
             </div>
         </div>
-        <!-- Mobile Menu -->
         <div class="mobile-menu md:hidden fixed inset-0 bg-white dark:bg-gray-900 z-50" id="mobile-menu">
             <div class="container mx-auto px-6 py-4 mt-16 space-y-4">
                 <a href="#about" class="block hover:text-blue-500 py-2">About</a>
@@ -58,30 +54,21 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="min-h-screen relative overflow-hidden transition-colors duration-200 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-900 dark:to-black bg-gradient-to-br from-white via-gray-100 to-gray-200" id="home">
-        <!-- Animated background elements -->
         <div class="absolute inset-0">
             <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 dark:opacity-20 opacity-5 animate-blob"></div>
             <div class="absolute top-0 -right-4 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 dark:opacity-20 opacity-5 animate-blob animation-delay-2000"></div>
             <div class="absolute -bottom-8 left-20 w-72 h-72 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 dark:opacity-20 opacity-5 animate-blob animation-delay-4000"></div>
         </div>
     
-        <!-- Grid pattern overlay -->
         <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBoMzB2MzBIMzB6IiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvZz48L3N2Zz4=')] opacity-20 dark:opacity-20 opacity-5"></div>
     
-        <!-- Main content -->
-        <div class="container mx-auto px-6 min-h-screen flex items-center relative z-10 pt-16 md:pt-0"> <!-- Added pt-16 for mobile -->
             <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-                <!-- Text Column -->
                 <div class="space-y-8" data-aos="fade-up" data-aos-duration="1000">
-                    <!-- Small heading with adjusted positioning -->
-                    <div class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full p-1 pl-2 pr-4 backdrop-blur-sm mt-8 md:mt-0"> <!-- Added mt-8 for mobile -->
                         <span class="flex h-2 w-2 rounded-full bg-blue-500"></span>
                         <span class="text-sm dark:text-blue-200 text-blue-600">Hello there!</span>
                     </div>
 
-                    <!-- Main heading -->
                     <h1 class="space-y-3">
                         <span class="block text-5xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 animate-gradient text-trasform: uppercase">
                             Cornelius Ardhani
@@ -91,12 +78,10 @@
                         </span>
                     </h1>
 
-                    <!-- Description with typing effect -->
                     <p class="text-xl lg:text-2xl dark:text-gray-400 text-gray-600 max-w-2xl typewriter">
                         Transforming ideas into impactful digital experiences through innovative multimedia solutions and technical excellence.
                     </p>
 
-                    <!-- Stats -->
                     <div class="flex gap-8 py-8">
                         <div>
                             <div class="text-3xl font-bold dark:text-white text-gray-900">5+</div>
@@ -112,7 +97,6 @@
                         </div>
                     </div>
 
-                    <!-- CTA Buttons -->
                     <div class="flex flex-wrap gap-4">
                         <a href="#contact" 
                         class="group relative px-6 py-3 rounded-lg overflow-hidden bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg">
@@ -130,13 +114,9 @@
                     </div>
                 </div>
 
-                <!-- Image Column -->
                 <div class="relative lg:h-[600px] h-[400px] hidden md:block" data-aos="fade-left" data-aos-duration="1000">
-                    <!-- Glassmorphism card -->
                     <div class="relative w-full h-full rounded-2xl overflow-hidden backdrop-blur-sm dark:bg-white/5 bg-white/50 dark:border-white/10 border-gray-200/50 border shadow-2xl">
-                        <!-- Image container -->
                         <div class="absolute inset-0">
-                            <!-- Gradient overlays -->
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10"></div>
                             <div class="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent z-10"></div>
                             
@@ -148,7 +128,6 @@
                             >
                         </div>
 
-                        <!-- Floating badges -->
                         <div class="absolute bottom-8 left-8 right-8 z-20 flex flex-wrap gap-3">
                             <span class="px-3 py-1 rounded-full text-sm dark:bg-white/10 bg-white/70 backdrop-blur-sm dark:border-white/20 border-gray-200 border text-gray-900 dark:text-white">Shortmovie Director</span>
                             <span class="px-3 py-1 rounded-full text-sm dark:bg-white/10 bg-white/70 backdrop-blur-sm dark:border-white/20 border-gray-200 border text-gray-900 dark:text-white">Content Creator</span>
@@ -156,7 +135,6 @@
                         </div>
                     </div>
 
-                    <!-- Decorative elements -->
                     <div class="absolute -top-4 -right-4 w-24 h-24 bg-blue-500 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
                     <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-purple-500 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
                 </div>
@@ -165,21 +143,17 @@
 </section>
 
     
-    <!-- About Section -->
     <section id="about" class="py-20 dark:bg-gray-800 bg-gray-50">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold mb-16 text-center" data-aos="fade-up">About Me</h2>
             
             <div class="grid md:grid-cols-2 gap-20" data-aos="fade-up" data-aos-delay="200">
-                <!-- Filmmaking & Content Creation -->
                 <div class="space-y-6" data-aos="fade-right">
                     <h3 class="text-2xl font-bold mb-4">Professional Profile</h3>
-                    <!-- Journey overview -->
                 <p class="text-lg md:text-xl leading-relaxed dark:text-gray-300 text-gray-700">
                     Results-driven multimedia and technology professional with <span class="font-semibold text-blue-500">5+ years</span> of progressive experience spanning digital content creation, system optimization, and project leadership.
                 </p>
                 
-                <!-- Key achievements -->
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="space-y-4">
                         <div class="flex items-start space-x-3">
@@ -242,7 +216,6 @@
                                 <i class="devicon-bootstrap-plain colored lang-icon" title="Bootstrap"></i>
                                 <i class="devicon-tailwindcss-plain colored lang-icon" title="Tailwind CSS"></i>
                                 <i class="devicon-rstudio-plain colored lang-icon" title="RStudio"></i>
-                                <!-- Add more skills here -->
                             </div>
                         </div>
                         
@@ -255,33 +228,26 @@
                                 <i class="devicon-googlecloud-plain colored lang-icon" title="Google Cloud Platform"></i>
                                 <i class="devicon-oracle-plain colored lang-icon" title="Oracle"></i>
                                 <i class="devicon-sqlite-plain colored lang-icon" title="SQLite"></i>
-                                <!-- Add more skills here -->
                             </div>
                         </div>
                     </div>
 
-                    <!-- Tools Section -->
                     <div class="tools-section">
                         <h3 class="text-2xl font-bold mb-6">Tools I Use</h3>
                         <div class="tools-grid">
-                            <!-- Tools will be populated by JavaScript -->
                         </div>
                     </div>
                 </div>
 
             </div>
 
-            <!-- Career Summary -->
             <div class="mt-16" data-aos="fade-up">
                 <h3 class="text-2xl font-bold mb-8 text-center">Career Summary</h3>
                 
                 <div class="mx-auto">
-                    <!-- Timeline wrapper -->
                     <div class="relative">
-                        <!-- Center line -->
                         <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 via-purple-500 to-green-500"></div>
                         
-                        <!-- UKSW -->
                         <div class="relative mb-16">
                             <div class="flex items-center justify-center mb-4">
                                 <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-gray-800"></div>
@@ -307,7 +273,6 @@
                             </div>
                         </div>
         
-                        <!-- GKMI -->
                         <div class="relative mb-16">
                             <div class="flex items-center justify-center mb-4">
                                 <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full border-4 border-white dark:border-gray-800"></div>
@@ -333,7 +298,6 @@
                             </div>
                         </div>
         
-                        <!-- SMAN 1 Kudus -->
                         <div class="relative">
                             <div class="flex items-center justify-center mb-4">
                                 <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-4 border-white dark:border-gray-800"></div>
@@ -364,12 +328,10 @@
         </div>
     </section>
 
-    <!-- Work Section -->
     <section id="work" class="py-20 dark:bg-gray-900 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold mb-16 text-center" data-aos="fade-up">My Work</h2>
             
-            <!-- Work Categories -->
             <div class="flex justify-center mb-8 space-x-4">
                 <button class="work-filter active px-4 py-2 rounded-full bg-blue-500 text-white" data-category="all">All</button>
                 <button class="work-filter px-4 py-2 rounded-full dark:bg-gray-700 bg-gray-200" data-category="web">Web</button>
@@ -377,14 +339,11 @@
                 <button class="work-filter px-4 py-2 rounded-full dark:bg-gray-700 bg-gray-200" data-category="video">Video</button>
             </div>
             
-            <!-- Work Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
-                <!-- Work items will be populated by JavaScript -->
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="py-20 dark:bg-gray-800 bg-gray-50">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold mb-16 text-center" data-aos="fade-up">Get In Touch</h2>
