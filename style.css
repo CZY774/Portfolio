@@ -208,19 +208,15 @@
 @media (max-width: 768px) {
     #home {
         padding: 4rem 0rem;
-    
     }
     
     .container {
         padding-top: 2rem;
-    
     }
     
-
     .inline-flex.items-center.gap-2 {
         margin-top: 1rem;
     }
-
 
     .hero-title {
         font-size: clamp(2rem, 8vw, 3.5rem);
