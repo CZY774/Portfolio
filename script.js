@@ -101,161 +101,161 @@
             {
                 type: 'web',
                 title: 'Muncul River Tubing',
-                image: 'img/website_1.png',
+                image: 'img/website-1.png',
                 link: 'https://munculrivertubing.com',
                 description: 'Bussiness website built with Laravel'
             },
             {
                 type: 'web',
                 title: 'Kapita Selekta Alfamart',
-                image: 'img/website_2.png',
+                image: 'img/website-2.png',
                 link: 'https://yoga-672022204-service-975615093796.asia-southeast2.run.app/',
                 description: 'VMS platform using Python, Flask, Redis, MongoDB, & deployed on GCP'
             },
             {
                 type: 'web',
                 title: 'Bubble Laundry',
-                image: 'img/website_3.png',
+                image: 'img/website-3.png',
                 link: 'https://czy774.github.io/bubble_laundry/',
                 description: 'Self-service laundry website built with Bootstrap'
             },
             {
                 type: 'web',
                 title: 'Point of Sale',
-                image: 'img/website_4.png',
+                image: 'img/website-4.png',
                 link: 'https://github.com/CZY774/learn-cpp/blob/a678cc23e28c124a1a726b96893a884758426f00/tts.cpp',
                 description: 'Implementing struct and file handling with C++'
             },
             {
                 type: 'web',
                 title: 'Clothes Shopping App',
-                image: 'img/website_5.png',
+                image: 'img/website-5.png',
                 link: 'https://github.com/CZY774/C-program/blob/main/tugas-rancang.c',
                 description: 'Clothes shopping app built with C that implements struct, file handling, sorting, and searching algorithms.'
             },
             {
                 type: 'web',
                 title: 'Supermarket & Warehouse Management System',
-                image: 'img/website_6.png',
+                image: 'img/website-6.png',
                 link: 'https://github.com/CZY774/gudang-supermarket-java-netbeans',
                 description: 'A system built in Java using NetBeans IDE and MySQL, featuring OOP principles and real-time time tracking.'
             },
             {
                 type: 'photo',
                 title: 'Shutter Bliss',
-                image: 'img/photo_1.jpg',
+                image: 'img/photo-1.jpg',
                 description: 'Photography series exploring nature'
             },
             {
                 type: 'photo',
                 title: 'Street Snapshot',
-                image: 'img/photo_2.jpg',
+                image: 'img/photo-2.jpg',
                 description: 'Photography series capturing street scenes'
             },
             {
                 type: 'photo',
                 title: 'Step Up',
-                image: 'img/photo_3.png',
+                image: 'img/photo-3.png',
                 description: 'Metanoia Youth 45th Anniversary 2022 Poster'
             },
             {
                 type: 'photo',
                 title: 'Menghayati Keimaman Kristus',
-                image: 'img/photo_6.jpg',
+                image: 'img/photo-6.jpg',
                 description: 'Good Friday Service at GKMI Kudus Cabang Muria Indah'
             },
             {
                 type: 'photo',
                 title: 'Idea To Profit | Be A Smart Entrepreneur',
-                image: 'img/photo_7.png',
+                image: 'img/photo-7.png',
                 description: 'FIT Competition 2023 Timeline'
             },
             {
                 type: 'photo',
                 title: 'Blue Sky, Blue Sea',
-                image: 'img/photo_5.jpg',
+                image: 'img/photo-5.jpg',
                 description: 'Beautiful landscape photography'
             },
             {
                 type: 'photo',
                 title: 'Night Drive',
-                image: 'img/photo_8.jpg',
+                image: 'img/photo-8.jpg',
                 description: 'Capturing night scenes'
             },
             {
                 type: 'video',
                 title: 'SMASA MMXXII Last Ceremony',
-                image: 'img/video_1.jpg',
+                image: 'img/video-1.jpg',
                 videoUrl: 'https://www.youtube.com/embed/TXQzKo2j-ok',
                 description: 'Senior High School 1 Kudus Batch 2022 Last Ceremony'
             },
             {
                 type: 'video',
                 title: 'Kita Satu Rumah',
-                image: 'img/video_2.jpg',
+                image: 'img/video-2.jpg',
                 videoUrl: 'https://www.youtube.com/embed/qjXdFmMGn84',
                 description: 'Youth Leadership Camp 2022 Shortmovie'
             },
             {
                 type: 'video',
                 title: 'Company Visit 2024 Aftermovie',
-                image: 'img/video_4.jpg',
+                image: 'img/video-4.jpg',
                 videoUrl: 'https://www.youtube.com/embed/BAlP_WjAJGc',
                 description: 'Informatics Engineering goes to Jakarta'
             },
             {
                 type: 'video',
                 title: 'FIT Competition 2023 Aftermovie',
-                image: 'img/video_6.png',
+                image: 'img/video-6.png',
                 videoUrl: 'https://www.youtube.com/embed/28RYBWVHs1I',
                 description: '12 hours live coding competition recap'
             },
             {
                 type: 'video',
                 title: 'Youthful Enthusiasm in Pandemic',
-                image: 'img/video_5.jpg',
+                image: 'img/video-5.jpg',
                 videoUrl: 'https://www.youtube.com/embed/Iqdgfxyt6Nw',
                 description: 'Smasa Euforia 2021 Aftermovie'
             },
             {
                 type: 'video',
                 title: 'Berbalik',
-                image: 'img/video_3.jpg',
+                image: 'img/video-3.jpg',
                 videoUrl: 'https://www.youtube.com/embed/PKvTvR8fGYA',
                 description: 'Metanoia Youth 43rd Anniversary 2020 Shortmovie'
             },
             {
                 type: 'video',
                 title: 'Please Him',
-                image: 'img/video_7.jpg',
+                image: 'img/video-7.jpg',
                 videoUrl: 'https://www.youtube.com/embed/PcezxGYzLS8',
                 description: 'Metanoia Youth 42nd Anniversary 2019 Shortmovie'
             },
             {
                 type: 'video',
                 title: 'Step Up',
-                image: 'img/video_8.jpg',
+                image: 'img/video-8.jpg',
                 videoUrl: 'https://www.youtube.com/embed/8gnwVo94eoo',
                 description: 'Metanoia Youth 45th Anniversary 2022 Shortmovie'
             },
             {
                 type: 'video',
                 title: 'Step Up Aftermovie',
-                image: 'img/video_11.jpg',
+                image: 'img/video-11.jpg',
                 videoUrl: 'https://www.youtube.com/embed/sADc8-UGbxo',
                 description: 'Metanoia Youth 45th Anniversary 2022 Aftermovie'
             },
             {
                 type: 'video',
                 title: 'Recall',
-                image: 'img/video_9.jpg',
+                image: 'img/video-9.jpg',
                 videoUrl: 'https://www.youtube.com/embed/LmP06VfOcHo',
                 description: 'Youth Leadership Camp 2019 Shortmovie'
             },
             {
                 type: 'video',
                 title: 'School From Home',
-                image: 'img/video_10.png',
+                image: 'img/video-10.png',
                 videoUrl: 'https://www.youtube.com/embed/67zLTv-aCM8',
                 description: 'Won the 2nd Place in High School shortmovie competition'
             }
