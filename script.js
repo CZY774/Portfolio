@@ -120,6 +120,27 @@
                 description: 'Self-service laundry website built with Bootstrap'
             },
             {
+                type: 'web',
+                title: 'Point of Sale',
+                image: 'img/website_4.png',
+                link: 'https://github.com/CZY774/learn-cpp/blob/a678cc23e28c124a1a726b96893a884758426f00/tts.cpp',
+                description: 'Implementing struct and file handling with C++'
+            },
+            {
+                type: 'web',
+                title: 'Clothes Shopping App',
+                image: 'img/website_5.png',
+                link: 'https://github.com/CZY774/C-program/blob/main/tugas-rancang.c',
+                description: 'Clothes shopping app built with C that implements struct, file handling, sorting, and searching algorithms.'
+            },
+            {
+                type: 'web',
+                title: 'Supermarket & Warehouse Management System',
+                image: 'img/website_6.png',
+                link: 'https://github.com/CZY774/gudang-supermarket-java-netbeans',
+                description: 'A system built in Java using NetBeans IDE and MySQL, featuring OOP principles and real-time time tracking.'
+            },
+            {
                 type: 'photo',
                 title: 'Shutter Bliss',
                 image: 'img/photo_1.jpg',
@@ -129,7 +150,7 @@
                 type: 'photo',
                 title: 'Street Snapshot',
                 image: 'img/photo_2.jpg',
-                description: 'Professional portrait photography'
+                description: 'Photography series capturing street scenes'
             },
             {
                 type: 'photo',
@@ -148,6 +169,18 @@
                 title: 'Idea To Profit | Be A Smart Entrepreneur',
                 image: 'img/photo_7.png',
                 description: 'FIT Competition 2023 Timeline'
+            },
+            {
+                type: 'photo',
+                title: 'Blue Sky, Blue Sea',
+                image: 'img/photo_5.jpg',
+                description: 'Beautiful landscape photography'
+            },
+            {
+                type: 'photo',
+                title: 'Night Drive',
+                image: 'img/photo_8.jpg',
+                description: 'Capturing night scenes'
             },
             {
                 type: 'video',
