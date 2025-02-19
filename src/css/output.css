@@ -1445,12 +1445,12 @@ video {
   opacity: 0;
 }
 
-.opacity-100 {
-  opacity: 1;
+.opacity-30 {
+  opacity: 0.3;
 }
 
-.opacity-50 {
-  opacity: 0.5;
+.opacity-70 {
+  opacity: 0.7;
 }
 
 .mix-blend-multiply {
@@ -1784,12 +1784,12 @@ video {
     color: rgb(255 255 255 / var(--tw-text-opacity, 1));
   }
 
-  .dark\:opacity-50 {
-    opacity: 0.5;
+  .dark\:opacity-30 {
+    opacity: 0.3;
   }
 
-  .dark\:opacity-70 {
-    opacity: 0.7;
+  .dark\:opacity-50 {
+    opacity: 0.5;
   }
 
   .dark\:mix-blend-difference {
