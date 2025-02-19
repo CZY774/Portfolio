@@ -15,11 +15,11 @@
     <title>Cornelius Yoga - Multimedia Professional & Developer | Portfolio</title>
     <link rel="icon" type="image/x-icon" href="img/logo-2.png">
 
-    <!-- <link href="https://cdn.tailwindcss.com" rel="stylesheet"> -->
-    <link rel="stylesheet" href="src/css/final.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="stylesheet" href="src/css/style.css">
+    <!-- <link rel="stylesheet" href="src/css/output.css"> -->
+    <link rel="stylesheet" href="src/css/final.css">
 
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwindcss.min.js"></script>
@@ -27,12 +27,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"></script>
 </head>
 <body class="transition-colors duration-200 dark:bg-gray-900 bg-white dark:text-white text-gray-900">
-    <!-- Navigation -->
     <nav class="fixed w-screen bg-white dark:bg-gray-900 bg-opacity-90 dark:bg-opacity-90 z-40 shadow-lg">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="#home" class="text-2xl font-bold">CZY</a>
-                <!-- Desktop Menu -->
                 <div class="hidden md:flex nav-items">
                     <a href="#about" class="hover:text-blue-500 transition">About</a>
                     <a href="#work" class="hover:text-blue-500 transition">Work</a>
@@ -64,14 +62,14 @@
 
     <section class="min-h-screen relative overflow-hidden transition-colors duration-200 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-900 dark:to-black bg-gradient-to-br from-white via-gray-100 to-gray-200" id="home">
         <div class="absolute inset-0">
-            <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 dark:opacity-20 opacity-5 animate-blob"></div>
-            <div class="absolute top-0 -right-4 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 dark:opacity-20 opacity-5 animate-blob animation-delay-2000"></div>
-            <div class="absolute -bottom-8 left-20 w-72 h-72 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 dark:opacity-20 opacity-5 animate-blob animation-delay-4000"></div>
+            <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply dark:mix-blend-difference filter blur-xl opacity-50 dark:opacity-70 animate-blob"></div>
+            <div class="absolute top-0 -right-4 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply dark:mix-blend-difference filter blur-xl opacity-50 dark:opacity-70 animate-blob animation-delay-2000"></div>
+            <div class="absolute -bottom-8 left-20 w-72 h-72 bg-indigo-500 rounded-full mix-blend-multiply dark:mix-blend-difference filter blur-xl opacity-50 dark:opacity-70 animate-blob animation-delay-4000"></div>
         </div>
     
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBoMzB2MzBIMzB6IiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvZz48L3N2Zz4=')] opacity-20 dark:opacity-20 opacity-5"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBoMzB2MzBIMzB6IiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvZz48L3N2Zz4=')] opacity-100 dark:opacity-50"></div>
     
-        <div class="container mx-auto px-6 min-h-screen flex items-center relative z-10 pt-16 md:pt-0"> <!-- Added pt-16 for mobile -->
+        <div class="container mx-auto px-6 min-h-screen flex items-center relative z-10 pt-16 md:pt-0">
             <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
                 <div class="space-y-8" data-aos="fade-up" data-aos-duration="1000">
                     <div class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full p-1 pl-2 pr-4 backdrop-blur-sm mt-8 md:mt-0"> <!-- Added mt-8 for mobile -->
@@ -145,8 +143,8 @@
                         </div>
                     </div>
 
-                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-blue-500 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
-                    <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-purple-500 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
+                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-blue-500 rounded-full  mix-blend-multiply dark:mix-blend-difference filter blur-2xl opacity-50 dark:opacity-70"></div>
+                    <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-purple-500 rounded-full  mix-blend-multiply dark:mix-blend-difference filter blur-2xl opacity-50 dark:opacity-70"></div>
                 </div>
             </div>
         </div>
