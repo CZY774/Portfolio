@@ -1,47 +1,73 @@
-"use strict";
+interface Tool {
+    name: string;
+    icon: string;
+}
+
+interface WorkItems {
+    type: 'web' | 'photo' | 'video';
+    title: string;
+    image: string;
+    link?: string;
+    description: string;
+    videoUrl?: string;
+}
+
+declare const feather: any;
+declare const AOS: any;
+
 feather.replace();
+
 AOS.init({
     duration: 1000,
     once: false,
     mirror: true,
     anchorPlacement: 'top-bottom'
 });
-const themeToggle = document.getElementById('theme-toggle');
+
+const themeToggle = document.getElementById('theme-toggle') as HTMLButtonElement;
 const html = document.documentElement;
-const getPreferredTheme = () => {
-    const savedTheme = localStorage.getItem('theme');
+
+const getPreferredTheme = (): 'dark' | 'light' => {
+    const savedTheme = localStorage.getItem('theme') as 'dark' | 'light' | null;
     if (savedTheme) {
         return savedTheme;
     }
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 };
-const setTheme = (theme) => {
+
+const setTheme = (theme: 'dark' | 'light'): void => {
     if (theme === 'dark') {
         html.classList.add('dark');
-    }
-    else {
+    } else {
         html.classList.remove('dark');
     }
     localStorage.setItem('theme', theme);
 };
+
 setTheme(getPreferredTheme());
-themeToggle === null || themeToggle === void 0 ? void 0 : themeToggle.addEventListener('click', () => {
+
+themeToggle?.addEventListener('click', () => {
     const newTheme = html.classList.contains('dark') ? 'light' : 'dark';
     setTheme(newTheme);
 });
+
 // const menuToggle = document.getElementById('menu-toggle');
 // const mobileMenu = document.getElementById('mobile-menu');
+
 function initializeMobileMenu() {
     const menu = document.getElementById('mobile-menu');
     const toggle = document.getElementById('menu-toggle');
-    if (!menu || !toggle)
-        return;
+    
+    if (!menu || !toggle) return;
+
     const menuLinks = menu.querySelectorAll('a');
+    
     toggle.addEventListener('click', () => {
         toggle.classList.toggle('active');
         menu.classList.toggle('active');
         document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
     });
+
     menuLinks.forEach(link => {
         link.addEventListener('click', () => {
             menu.classList.remove('active');
@@ -49,8 +75,9 @@ function initializeMobileMenu() {
             document.body.style.overflow = '';
         });
     });
-    document.addEventListener('click', (e) => {
-        const target = e.target;
+
+    document.addEventListener('click', (e: MouseEvent) => {
+        const target = e.target as HTMLElement;
         if (!menu.contains(target) && !toggle.contains(target) && menu.classList.contains('active')) {
             menu.classList.remove('active');
             toggle.classList.remove('active');
@@ -58,7 +85,8 @@ function initializeMobileMenu() {
         }
     });
 }
-const toolsData = [
+
+const toolsData: Tool[] = [
     { name: 'Visual Studio Code', icon: 'code' },
     { name: 'Adobe Illustrator', icon: 'pen-tool' },
     { name: 'Adobe Premiere Pro', icon: 'film' },
@@ -68,6 +96,7 @@ const toolsData = [
     { name: 'Adobe Audition', icon: 'mic' },
     { name: 'Figma', icon: 'layout' }
 ];
+
 const toolsGrid = document.querySelector('.tools-grid');
 toolsData.forEach(tool => {
     const toolDiv = document.createElement('div');
@@ -76,8 +105,9 @@ toolsData.forEach(tool => {
         <i data-feather="${tool.icon}" class="w-6 h-6 mb-2"></i>
         <p class="text-sm font-medium text-center">${tool.name}</p>
     `;
-    toolsGrid === null || toolsGrid === void 0 ? void 0 : toolsGrid.appendChild(toolDiv);
+    toolsGrid?.appendChild(toolDiv);
 });
+
 const themeToggleMobile = document.getElementById('theme-toggle-mobile');
 if (themeToggleMobile) {
     themeToggleMobile.addEventListener('click', () => {
@@ -85,12 +115,14 @@ if (themeToggleMobile) {
         setTheme(newTheme);
     });
 }
-/*
+
+/* 
 * Declare current version
 * @version 1.0.0 - Initial version (19th Feb 2025 1.55 am)
 * Change the version when there is a new update */
 const imageVersion = '1.0.0';
-const workItems = [
+
+const workItems: WorkItems[] = [
     {
         type: 'web',
         title: 'Muncul River Tubing',
@@ -253,26 +285,30 @@ const workItems = [
         description: 'Won the 2nd Place in High School shortmovie competition'
     }
 ];
+
 const workGrid = document.querySelector('.grid-cols-1');
-function populateWorks(category = 'all') {
-    if (!workGrid)
-        return;
+function populateWorks(category: string = 'all'): void {
+    if (!workGrid) return;
+    
     workGrid.innerHTML = '';
     workItems
         .filter(item => category === 'all' || item.type === category)
         .forEach(item => {
-        const workDiv = document.createElement('div');
-        workDiv.className = 'group relative overflow-hidden rounded-lg shadow-lg';
-        workDiv.setAttribute('data-aos', 'fade-up');
-        const lookCloserButton = item.type === 'photo' ?
-            `<button class="mt-4 inline-flex items-center text-blue-400 hover:text-blue-300 look-closer" data-image="${item.image}">
+            const workDiv = document.createElement('div');
+            workDiv.className = 'group relative overflow-hidden rounded-lg shadow-lg';
+            workDiv.setAttribute('data-aos', 'fade-up');
+            
+            const lookCloserButton = item.type === 'photo' ? 
+                `<button class="mt-4 inline-flex items-center text-blue-400 hover:text-blue-300 look-closer" data-image="${item.image}">
                     Look Closer <i data-feather="maximize-2" class="ml-2 w-4 h-4"></i>
                 </button>` : '';
-        const videoButton = item.videoUrl ?
-            `<button class="mt-4 inline-flex items-center text-blue-400 hover:text-blue-300 play-video" data-url="${item.videoUrl}">
+            
+            const videoButton = item.videoUrl ? 
+                `<button class="mt-4 inline-flex items-center text-blue-400 hover:text-blue-300 play-video" data-url="${item.videoUrl}">
                     Play Video <i data-feather="play" class="ml-2 w-4 h-4"></i>
                 </button>` : '';
-        workDiv.innerHTML = `
+            
+            workDiv.innerHTML = `
                 <img src="${item.image}" alt="${item.title}" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
                     <h3 class="text-white text-xl font-bold">${item.title}</h3>
@@ -284,11 +320,13 @@ function populateWorks(category = 'all') {
                     ${videoButton}
                 </div>
             `;
-        workGrid.appendChild(workDiv);
-    });
-    feather.replace();
+            
+            workGrid.appendChild(workDiv);
+        });
+        feather.replace();
 }
-function createImageModal() {
+
+function createImageModal(): HTMLDivElement {
     const modal = document.createElement('div');
     modal.className = 'fixed inset-0 bg-black/90 z-50 flex items-center justify-center hidden';
     modal.innerHTML = `
@@ -301,12 +339,16 @@ function createImageModal() {
     `;
     document.body.appendChild(modal);
     feather.replace();
+    
     return modal;
 }
+
 const imageModal = createImageModal();
-document.addEventListener('click', (e) => {
-    const target = e.target;
+
+document.addEventListener('click', (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
     const lookCloserButton = target.closest('.look-closer');
+
     if (lookCloserButton) {
         const imgSrc = lookCloserButton.getAttribute('data-image');
         const modalImg = imageModal.querySelector('img');
@@ -318,11 +360,14 @@ document.addEventListener('click', (e) => {
         // imageModal.querySelector('img').src = imgSrc;
         // imageModal.classList.remove('hidden');
     }
+    
     if (target.closest('#close-image-modal')) {
         imageModal.classList.add('hidden');
     }
 });
+
 populateWorks();
+
 const filterButtons = document.querySelectorAll('.work-filter');
 filterButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -330,18 +375,21 @@ filterButtons.forEach(button => {
             btn.classList.remove('active', 'bg-blue-500', 'text-white');
             btn.classList.add('dark:bg-gray-700', 'bg-gray-200');
         });
+        
         button.classList.remove('dark:bg-gray-700', 'bg-gray-200');
         button.classList.add('active', 'bg-blue-500', 'text-white');
+        
         const category = button.getAttribute('data-category') || 'all';
         populateWorks(category);
     });
 });
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', function (this: HTMLAnchorElement, e: Event) {
         e.preventDefault();
         const href = this.getAttribute('href');
-        if (!href)
-            return;
+        if (!href) return;
+
         const target = document.querySelector(href);
         if (target) {
             target.scrollIntoView({
@@ -350,15 +398,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
             const mobileMenu = document.getElementById('mobile-menu');
             const menuToggle = document.getElementById('menu-toggle');
-            if (mobileMenu === null || mobileMenu === void 0 ? void 0 : mobileMenu.classList.contains('active')) {
+            if (mobileMenu?.classList.contains('active')) {
                 mobileMenu.classList.remove('active');
-                menuToggle === null || menuToggle === void 0 ? void 0 : menuToggle.classList.remove('active');
+                menuToggle?.classList.remove('active');
                 document.body.style.overflow = '';
             }
         }
     });
 });
-function createVideoModal() {
+
+function createVideoModal(): HTMLDivElement {
     const modal = document.createElement('div');
     modal.className = 'fixed inset-0 bg-black/90 z-50 flex items-center justify-center hidden';
     modal.innerHTML = `
@@ -373,18 +422,20 @@ function createVideoModal() {
     `;
     document.body.appendChild(modal);
     feather.replace();
+
     return modal;
 }
+
 const videoModal = createVideoModal();
 const closeModal = document.getElementById('close-modal');
-closeModal === null || closeModal === void 0 ? void 0 : closeModal.addEventListener('click', () => {
+closeModal?.addEventListener('click', () => {
     videoModal.classList.add('hidden');
     const iframe = videoModal.querySelector('iframe');
-    if (iframe)
-        iframe.src = '';
+    if (iframe) iframe.src = '';
 });
-document.addEventListener('click', (e) => {
-    const target = e.target;
+
+document.addEventListener('click', (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
     const playButton = target.closest('.play-video');
     if (playButton) {
         // const button = e.target.closest('.play-video');
@@ -398,13 +449,19 @@ document.addEventListener('click', (e) => {
         // videoModal.classList.remove('hidden');
     }
 });
+
 const nav = document.querySelector('nav');
-const observer = new IntersectionObserver(([entry]) => {
-    nav === null || nav === void 0 ? void 0 : nav.classList.toggle('shadow-lg', !entry.isIntersecting);
-}, { threshold: 0.9 });
+const observer = new IntersectionObserver(
+    ([entry]) => {
+        nav?.classList.toggle('shadow-lg', !entry.isIntersecting);
+    },
+    { threshold: 0.9 }
+);
+
 const firstSection = document.querySelector('section');
-if (firstSection)
-    observer.observe(firstSection);
+if (firstSection) observer.observe(firstSection);
+
+
 document.addEventListener('DOMContentLoaded', () => {
     feather.replace();
     initializeMobileMenu();
