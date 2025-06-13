@@ -86,28 +86,6 @@ function initializeMobileMenu() {
     });
 }
 
-const toolsData: Tool[] = [
-    { name: 'Visual Studio Code', icon: 'code' },
-    { name: 'Adobe Illustrator', icon: 'pen-tool' },
-    { name: 'Adobe Premiere Pro', icon: 'film' },
-    { name: 'Adobe After Effects', icon: 'video' },
-    { name: 'Adobe Photoshop', icon: 'image' },
-    { name: 'Adobe Lightroom', icon: 'sliders' },
-    { name: 'Adobe Audition', icon: 'mic' },
-    { name: 'Figma', icon: 'layout' }
-];
-
-const toolsGrid = document.querySelector('.tools-grid');
-toolsData.forEach(tool => {
-    const toolDiv = document.createElement('div');
-    toolDiv.className = 'tool-item dark:bg-gray-700 bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300';
-    toolDiv.innerHTML = `
-        <i data-feather="${tool.icon}" class="w-6 h-6 mb-2"></i>
-        <p class="text-sm font-medium text-center">${tool.name}</p>
-    `;
-    toolsGrid?.appendChild(toolDiv);
-});
-
 const themeToggleMobile = document.getElementById('theme-toggle-mobile');
 if (themeToggleMobile) {
     themeToggleMobile.addEventListener('click', () => {
