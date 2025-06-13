@@ -22,15 +22,14 @@ This website showcases my work, experience, and expertise in web development, mu
 - `index.html` — Portfolio homepage
 - `src/` — Source code (CSS, JS/TS)
 - `img/` — Images and media assets
-- `Homepage-GSAP_files/` — Additional files & assets
 - `tailwind.config.js`, `postcss.config.js` — CSS build configuration
 
 ## 🖥️ How to Run Locally
 
 1. Clone repository:
 ```sh
-git clone https://github.com/USERNAME/REPO-NAME.git
-cd REPO-NAME
+git clone https://github.com/CZY774/Portfolio.git
+cd Portfolio
 ```
 2. Install dependencies (if you want to rebuild CSS):
 ```sh
