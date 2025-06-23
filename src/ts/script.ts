@@ -117,6 +117,20 @@ const workItems: WorkItems[] = [
     },
     {
         type: 'web',
+        title: 'EduVerse by Belum Ada Ide',
+        image: `img/website-7.png?v=${imageVersion}`,
+        link: 'https://www.figma.com/proto/iADoy42ojxwFJrOPRwKbAi/EduVerse-by-Belum-Ada-Ide?page-id=0%3A1&node-id=15-404&p=f&viewport=22%2C1366%2C0.04&t=pA0UioQrdVVisDYT-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=26%3A472',
+        description: 'UI/UX winner for a desktop based educational platform for junior high school students'
+    },
+    {
+        type: 'web',
+        title: 'Personal Portfolio',
+        image: `img/website-8.png?v=${imageVersion}`,
+        link: 'https://www.figma.com/proto/sfsRHIHF9RIqKK28RfIbLB/Prototype-Portfolio?page-id=58%3A110&node-id=58-260&p=f&viewport=714%2C-1868%2C0.65&t=T1XFOcaTmdvAG88S-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=58%3A260',
+        description: 'A UI/UX design for a personal portfolio website, showcasing skills and projects'
+    },
+    {
+        type: 'web',
         title: 'Bubble Laundry',
         image: `img/website-3.png?v=${imageVersion}`,
         link: 'https://czy774.github.io/bubble_laundry/',

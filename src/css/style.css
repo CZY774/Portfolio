@@ -270,26 +270,28 @@
 
 .marquee-container {
     position: relative;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
     border-top: 1px solid rgba(200, 200, 200, 0.2);
     border-bottom: 1px solid rgba(200, 200, 200, 0.2);
-  }
-  
-  .marquee-content {
-    animation: marquee 30s linear infinite;
-  }
-  
-  @keyframes marquee {
+}
+
+.marquee-content {
+    display: inline-flex;
+    animation: marquee 18s linear infinite;
+    will-change: transform; /* Optimasi performa */
+}
+
+.marquee-content span {
+    margin-right: 2rem; /* Jarak antara item */
+}
+
+@keyframes marquee {
     0% {
-      transform: translateX(0);
+        transform: translateX(0);
     }
     100% {
-      transform: translateX(-50%);
+        transform: translateX(-100%);
     }
-  }
-  
-  .marquee-container:hover .marquee-content {
-    animation-play-state: paused;
-  }
+}
