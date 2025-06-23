@@ -96,7 +96,7 @@ const workItems = [
         type: 'web',
         title: 'Maison Étoile by K-Mentality',
         image: `img/website-9.png?v=${imageVersion}`,
-        link: 'https://www.figma.com/proto/iADoy42ojxwFJrOPRwKbAi/EduVerse-by-Belum-Ada-Ide?page-id=0%3A1&node-id=15-404&p=f&viewport=22%2C1366%2C0.04&t=pA0UioQrdVVisDYT-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=26%3A472',
+        link: 'https://github.com/RafflesSupit/Next-Gen-K-MENTALITY',
         description: '8-hour livecode winner: Laravel-based e-restaurant with ordering, menu management, and RBAC for 3 roles'
     },
     {
